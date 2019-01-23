@@ -1,0 +1,64 @@
+# Mercurial Addons
+.hg
+.hgignore
+.hgsub
+.hgcache
+
+# Cache Files
+*.cache
+
+# Syncthing Content Sources
+content-src
+
+# Unity
+GameJam/Library/*
+#TOO HEAVY
+#!GameJam/Library/ShaderCache
+#!GameJam/Library/ShaderCache/*
+#!GameJam/Library/AtlasCache
+#!GameJam/Library/AtlasCache/*
+GameJam/Temp
+
+# Visual Studio
+GameJam/.vs
+
+# C# Projects
+*.sln
+*.csproj
+
+!GameJam.sln
+!GameJam.csproj
+
+# MonoDevelop
+GameJam/*.userprefs
+
+# VS Code
+GameJam/.vscode/*
+
+# JetBrains Rider
+GameJam/.idea/*
+
+# Building
+GameJam/.gradle/*
+GameJam/obj/*
+# Unknown
+.fuse_hidden*
+documentation/html
+*.tmp
+documentation/latex
+branding/
+*.DS_Store
+
+# Syncthing System
+.stfolder
+.stversions
+
+# Syncthing Content
+#GameJam/Assets/Content/*
+#!GameJam/Assets/Content/.stignore
+#!GameJam/Assets/Content/.sync-content-filter.txt
+
+# Content Sources
+content/*
+# Builds
+builds/*
