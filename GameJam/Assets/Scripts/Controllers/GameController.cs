@@ -16,9 +16,28 @@ public class GameController : MonoBehaviour {
     //-Links
     public UIManager _UIManager;
     
+    public int WinScore = 3000;
+    
+    private ClearController _playerClearController = null;
+    private Human _human = null;
+
     private GameState _gameState = GameState.None;
 
-    private void Awake() {
+    private GameState GameState {
+        get { return _gameState; }
+        set {
+            if (_gameState == value) {
+                return;
+            }
+
+            _gameState = value;
+            OnGameStateChanged();
+        }
+    }
+
+    private void Start() {
+        _playerClearController = FindObjectOfType<ClearController>();
+        _human = FindObjectOfType<Human>();
     }
 
     private void OnGameStateChanged() {
@@ -36,6 +55,25 @@ public class GameController : MonoBehaviour {
                 Debug.LogError("Do not use " + _gameState + " state");
                 break;
         }
+    }
+
+    public void CheckGameState(int score, Human.Damage humanState) {
+        if (score <= 0 || humanState == Human.Damage.Death) {
+            GameState = GameState.Lose;
+        }
+
+        if (score >= WinScore) {
+            GameState = GameState.Win;
+        }
+    }
+
+    public int GetCurrentScore() {
+        return (int) _playerClearController.GetCurrentPoints();
+    }
+
+    public int GetHumanPerCent() {
+        var healthPerCent = (int)(_human.GetTotalPoints() * 100);
+        return healthPerCent;
     }
 
     private void UpdateUIInfo() {

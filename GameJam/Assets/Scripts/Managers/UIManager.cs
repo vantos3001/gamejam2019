@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
    public Canvas BaseCanvas;
@@ -13,19 +12,17 @@ public class UIManager : MonoBehaviour {
 
    private static UIManager _instance;
 
-   private ClearController _playerClearController = null;
-   private Human _human = null;
+   private GameController _gameController;
+   private HUD _hud;
    
    private void Start() {
       _hud = HUDGameObject.GetComponent<HUD>();
-
-      _playerClearController = Object.FindObjectOfType<ClearController>();
-      _human = Object.FindObjectOfType<Human>();
+      _gameController = FindObjectOfType<GameController>();
    }
 
    private void Update() {
-      _hud.SetScoreText((int)_playerClearController.GetCurrentPoints());
-      _hud.SetHumanHealth(_human.GetTotalPoints());
+      _hud.SetScoreText(_gameController.GetCurrentScore());
+      _hud.SetHumanHealthPerCent(_gameController.GetHumanPerCent());
    }
    
    //--Show & Hide
@@ -48,6 +45,4 @@ public class UIManager : MonoBehaviour {
       HideNextScenePanel();
    }
 
-   private HUD _hud;
-   public void SetHumanHealth(int health) { _hud.SetHumanHealth(health); }
 }
