@@ -25,6 +25,23 @@ public class GameController : MonoBehaviour {
 
     public void CheckWormAction(TextureSetupScript.EMapMaterial state) {
         //realize EMapMaterial state
+        switch (state) {
+            case TextureSetupScript.EMapMaterial.Meat:
+                EatMeat();
+                break;
+            case TextureSetupScript.EMapMaterial.Empty:
+                MoveEmptySpace();
+                break;
+            case TextureSetupScript.EMapMaterial.Bone:
+                EatBone();
+                break;
+            case TextureSetupScript.EMapMaterial.Brain:
+                EatOrgan();
+                break;
+            default:
+                Debug.Log("Do not handle " + state + " state");
+                break;
+        }
         
         CheckGameState();
     }
