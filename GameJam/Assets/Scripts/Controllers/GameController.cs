@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public enum GameState {
     Win,
+    ReadyToWin,
     Lose,
     InProgress,
     None,
@@ -47,14 +48,15 @@ public class GameController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (GameState == GameState.InProgress) {
-            CheckGameState();
+        if (GameState == GameState.InProgress || GameState == GameState.ReadyToWin) {
+            UpdateGameState();
         }
     }
 
     private void OnGameStateChanged() {
         switch (_gameState) {
             case GameState.Win:
+                _UIManager.HideReadyToWinPanel();
                 _UIManager.ShowWinPanel();
                 break;
             case GameState.Lose:
@@ -62,6 +64,10 @@ public class GameController : MonoBehaviour {
                 break;
             case GameState.InProgress:
                 _UIManager.ShowHUD();
+                _UIManager.HideReadyToWinPanel();
+                break;
+            case GameState.ReadyToWin:
+                _UIManager.ShowReadyToWinPanel();
                 break;
             default:
                 Debug.LogError("Do not use " + _gameState + " state");
@@ -70,7 +76,7 @@ public class GameController : MonoBehaviour {
     }
     
 
-    public void CheckGameState() {
+    public void UpdateGameState() {
         var score = GetCurrentScore();
         var humanState = GetHumanState();
         
@@ -79,7 +85,13 @@ public class GameController : MonoBehaviour {
         }
 
         if (score >= WinScore) {
-            GameState = GameState.Win;
+            GameState = GameState.ReadyToWin;
+
+            if (Input.GetKeyDown(KeyCode.E)) {
+                GameState = GameState.Win;
+            }
+        } else {
+            GameState = GameState.InProgress;
         }
     }
 

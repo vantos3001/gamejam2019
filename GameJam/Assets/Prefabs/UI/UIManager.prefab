@@ -50,6 +50,7 @@ MonoBehaviour:
   WinPanel: {fileID: 4781792199135103492}
   LosePanel: {fileID: 7816030041118104265}
   NextScenePanel: {fileID: 7344214607458518370}
+  ReadyToWinPanel: {fileID: 7854451787360204779}
 --- !u!114 &9206856117474500920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +347,12 @@ GameObject:
 --- !u!1 &7344214607458518370 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3234367286894139971, guid: 1f357483c69a61f428e2c733f0bc01a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5262776874483113761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7854451787360204779 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2596815456312338634, guid: 1f357483c69a61f428e2c733f0bc01a6,
     type: 3}
   m_PrefabInstance: {fileID: 5262776874483113761}
   m_PrefabAsset: {fileID: 0}

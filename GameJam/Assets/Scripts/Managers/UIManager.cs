@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour {
    public GameObject WinPanel;
    public GameObject LosePanel;
    public GameObject NextScenePanel;
+   public GameObject ReadyToWinPanel;
 
    private static UIManager _instance;
 
@@ -37,12 +38,16 @@ public class UIManager : MonoBehaviour {
 
    public void ShowNextScenePanel() { NextScenePanel.SetActive(true); }
    public void HideNextScenePanel() { NextScenePanel.SetActive(false); }
+   
+   public void ShowReadyToWinPanel(){ReadyToWinPanel.SetActive(true);}
+   public void HideReadyToWinPanel(){ReadyToWinPanel.SetActive(false);}
 
    public void HideAllPanels() {
       HideHUD();
       HideWinPanel();
       HideLosePanel();
       HideNextScenePanel();
+      HideReadyToWinPanel();
    }
 
 }
