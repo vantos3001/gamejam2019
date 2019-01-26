@@ -6,21 +6,24 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour {
    public Canvas BaseCanvas;
 
-   public GameObject HUD;
+   public GameObject HUDGameObject;
    public GameObject WinPanel;
    public GameObject LosePanel;
    public GameObject NextScenePanel;
 
    private static UIManager _instance;
 
+   private void Start() {
+      _hud = HUDGameObject.GetComponent<HUD>();
+   }
 
    #region Show and Hide Methods
    public void ShowHUD() {
-      HUD.gameObject.SetActive(true);
+      HUDGameObject.gameObject.SetActive(true);
    }
 
    public void HideHUD() {
-      HUD.gameObject.SetActive(false);
+      HUDGameObject.gameObject.SetActive(false);
    }
    
    public void ShowWinPanel() {
@@ -53,6 +56,20 @@ public class UIManager : MonoBehaviour {
       HideLosePanel();
       HideNextScenePanel();
    }
+   #endregion
+
+   #region HUD
+
+   private HUD _hud;
+   public void SetScoreText(int score) {
+      _hud.SetScoreText(score);
+   }
+
+   public void SetHumanHealth(int health) {
+      _hud.SetHumanHealth(health);
+   }
+   
+
    #endregion
 
 }
