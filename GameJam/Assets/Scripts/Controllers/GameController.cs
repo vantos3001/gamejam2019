@@ -14,16 +14,19 @@ public class GameController : MonoBehaviour {
 
     private int _currentHumanHealth;
     
-    private int _startScore = 200;
-    private int _winScore = 1000;
+    private const int StartScore = 200;
+    private const int WinScore = 1000;
 
     private int _currentScore;
 
     private GameState _gameState = GameState.None;
     
     public void InitGame(){}
-    
-    public void InitLevel(){}
+
+    public void InitLevel() {
+        _currentHumanHealth = MaxHumanHealth;
+        _currentScore = StartScore;
+    }
 
 
     public void CheckWormAction(TextureSetupScript.EMapMaterial state) {
@@ -80,7 +83,7 @@ public class GameController : MonoBehaviour {
     private void CheckGameState() {
         if (_currentScore <= 0 || _currentHumanHealth <= 0) {
             _gameState = GameState.Lose;
-        }else if (_winScore <= _currentScore) {
+        }else if (WinScore <= _currentScore) {
             _gameState = GameState.Win;
 
         } else {
