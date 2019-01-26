@@ -140,23 +140,12 @@ public class EatableObject : MonoBehaviour
     }
 
     private Vector2 ConvertWorldPositionToPixelPosition(Vector2 WorldPosition) {
-        int theWidth = _logicTexture.width;
-        int theHeight = _logicTexture.height;
-
-        float theScaleX = transform.localScale.x;
-        float theScaleY = transform.localScale.y;
-
-        if (theScaleX/theScaleY != _logicTexture.width/_logicTexture.height) {
-            Debug.Log("!!! INCORRECT MAP OBJECT ASPECT RATIO !!!");
-        }
-
-        //Here we have vector in local space
-        // [-0.5 , -0.5] -> bottom left
-        // [ 0.5 ,  0.5] -> top right
         Vector3 LocalPosition = transform.InverseTransformPoint(new Vector3(WorldPosition.x, WorldPosition.y, 0.0f));
 
+        float AspectRatio = (float)_logicTexture.width / _logicTexture.height;
+        
         float thePixelPositionX = _logicTexture.width * (0.5f + LocalPosition.x);
-        float thePixelPositionY = _logicTexture.height * (0.5f + LocalPosition.y);
+        float thePixelPositionY = _logicTexture.height * (0.5f + LocalPosition.y * AspectRatio);
 
         return new Vector2(thePixelPositionX, thePixelPositionY);
     }
