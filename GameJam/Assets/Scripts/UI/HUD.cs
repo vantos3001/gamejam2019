@@ -4,6 +4,7 @@ using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour {
     private const string ScorePrefix = "Score: ";
@@ -13,6 +14,20 @@ public class HUD : MonoBehaviour {
     
     public GameObject HumanHealth;
 
+    public Slider ScoreBar;
+    private Image FillImage;
+
+    public float MaxScore;
+    private float CurrentScore = 0;
+
+    private void Start() {
+        var scoreBarImages = ScoreBar.GetComponentsInChildren<Image>();
+        foreach (var image in scoreBarImages) {
+            if (image.name == "Fill") {
+                FillImage = image;
+            }
+        }
+    }
 
     public void SetScoreText(int score) {
         var scoreText = Score.GetComponentInChildren<TextMeshProUGUI>();
@@ -22,5 +37,16 @@ public class HUD : MonoBehaviour {
     public void SetHumanHealthPerCent(int healthPerCent) {
         var healthText = HumanHealth.GetComponentInChildren<TextMeshProUGUI>();
         healthText.text = HumanHealthPrefix + healthPerCent + "%";
+    }
+
+    public void SetCurrentScore(int score) {
+        CurrentScore = score;
+
+        ScoreBar.value = CalculateScore();
+        FillImage.color = Color.Lerp(Color.red, Color.green, ScoreBar.value);
+    }
+
+    private float CalculateScore() {
+        return CurrentScore / MaxScore;
     }
 }
