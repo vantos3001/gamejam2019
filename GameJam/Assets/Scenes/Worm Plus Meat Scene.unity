@@ -244,6 +244,21 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 489991911893480555, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_inputSource
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 489991911893480555, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 489991911893480555, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1fb60eee68156e4c92d01596d9ef228, type: 3}
 --- !u!114 &222922696 stripped
@@ -514,6 +529,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1818240906, guid: bb782bc6af0944946bcd9e76043d10c5, type: 3}
+      propertyPath: CurrentPoits
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb782bc6af0944946bcd9e76043d10c5, type: 3}
 --- !u!1 &1852680679
@@ -695,6 +714,11 @@ PrefabInstance:
       propertyPath: _UIManager
       value: 
       objectReference: {fileID: 222922696}
+    - target: {fileID: 9181729748736366773, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: WinScore
+      value: 700
+      objectReference: {fileID: 0}
     - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
         type: 3}
       propertyPath: MeatEatableObject

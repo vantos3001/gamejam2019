@@ -19,9 +19,8 @@ public class HUD : MonoBehaviour {
         scoreText.text = ScorePrefix + score;
     }
 
-    public void SetHumanHealth(float health) {
+    public void SetHumanHealthPerCent(int healthPerCent) {
         var healthText = HumanHealth.GetComponentInChildren<TextMeshProUGUI>();
-        var healthPerCent = (int)(health * 100);
         healthText.text = HumanHealthPrefix + healthPerCent + "%";
     }
 }
