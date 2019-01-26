@@ -5,9 +5,18 @@ using UnityEngine;
 
 public class EatableObject : MonoBehaviour
 {
+    public enum EEatableObjectType
+    {
+        Meat,
+        Heart,
+        Stomach,
+        Bone
+    }
+    
     //Fields
     //-Settings
     public SpriteRenderer Visual = null;
+    public EEatableObjectType ObjectType = EEatableObjectType.Meat;
     
     //-Runtime
     private Texture2D _visualTexture = null;
@@ -44,8 +53,6 @@ public class EatableObject : MonoBehaviour
     //-Eatable World API
     public void EatInCircle(Vector2 WorldPosition, float WorldRadius) {
         int Radius = (int)ConvertValueInUnitsToValueInPixels(WorldRadius);
-
-        Debug.Log(WorldRadius + " : " + Radius);
         
         Vector2 PixelPosition = ConvertWorldPositionToPixelPosition(WorldPosition);
         int CenterX = (int)PixelPosition.x;
@@ -106,7 +113,7 @@ public class EatableObject : MonoBehaviour
         }
         
         float PixelsInCircle = (float)(Math.PI * Radius*Radius);
-        return PixelsInCircle/ObjectPixlesCount;
+        return ObjectPixlesCount/PixelsInCircle;
     }
 
     //-Utils

@@ -7,8 +7,8 @@ public class ClearController : MonoBehaviour {
     //Fields
     //-Settings
     public float EatingRadius = 0.2f;
-    public float PointsPerMeatPixel = 0.001f;
-    public float PenaltyIfNoEatAtTick = 0.1f;
+    public float PointsPerFullMeatCircle = 10.0f;
+    public float PenaltyIfNoEatAtTick = 0.01f;
     
     //--Runtime-cache
     private PlayerMovement _playerMovement = null;
@@ -17,43 +17,54 @@ public class ClearController : MonoBehaviour {
     public float CurrentPoits = 0.0f;
     
     private bool _eatTickInfo_CanEat = true;
-    private bool _eatTickInfo_AteSomeMeat = false;
+    private float _eatTickInfo_AteMeatCirclePercent = 0.0f;
     
-    // Update is called once per frame
+    //Methods
+    //-API
+    public float GetCurrentPoints(){
+        return CurrentPoits;
+    }
+
+    //-Implementation
     private void Start(){
         _playerMovement = gameObject.GetComponent<PlayerMovement>();
     }
 
-    void Update(){
+    void Update() {
         Update_ResetEatTickStatistic();        
-        Update_PerformEatPrediction();
+        Update_PerformEat();
         Update_ProcessEatTickStatistic();
     }
 
+    //Eating info lifecycle
     private void Update_ResetEatTickStatistic() {
         _eatTickInfo_CanEat = true;
-        _eatTickInfo_AteSomeMeat = false;
+        _eatTickInfo_AteMeatCirclePercent = 0.0f;
     }
 
-    private void Update_PerformEatPrediction() {
-        //EatableWorld theEatableWorld = Object.FindObjectOfType<EatableWorld>();
-        //theEatableWorld.GetObjectsPercentInCircle(EatPosition, EatingRadius);
-    }
-    
-    private void Update_EatCircle() {
-        EatableWorld theEatableWorld = Object.FindObjectOfType<EatableWorld>();
-
+    private void Update_PerformEat(){
         Vector2 EatPosition = new Vector2(transform.position.x, transform.position.y);
+
+        EatableWorld theEatableWorld = Object.FindObjectOfType<EatableWorld>();
+        EatableWorld.EatableObjectWithPercent[] theEatableObjectsEatingDatas =
+                theEatableWorld.GetObjectsPercentInCircle(EatPosition, EatingRadius);
+
+        foreach (EatableWorld.EatableObjectWithPercent theEatableObjectsEatingData in theEatableObjectsEatingDatas) {
+            switch (theEatableObjectsEatingData.EatableObject.ObjectType){
+                case EatableObject.EEatableObjectType.Meat:
+                    _eatTickInfo_AteMeatCirclePercent += theEatableObjectsEatingData.Percent;
+                    break;
+            }
+        }
+
         theEatableWorld.EatInCircle(EatPosition, EatingRadius);
     }
-
+    
     private void Update_ProcessEatTickStatistic() {
-        //if (!EatTickStatistic_AteSomeMeat){
-        //    DecreasePointsInNoMeat();
-        //}
-    }
-
-    private void DecreasePointsInNoMeat(){
-        //CurrentPoits -= PenaltyIfNoEatAtTick;
+        if (_eatTickInfo_AteMeatCirclePercent != 0.0f){
+            CurrentPoits += PointsPerFullMeatCircle * _eatTickInfo_AteMeatCirclePercent;
+        } else {
+            CurrentPoits -= PenaltyIfNoEatAtTick;
+        }
     }
 }
