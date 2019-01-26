@@ -6,7 +6,12 @@ public class DontDestroy : MonoBehaviour
 {
     void Awake()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
+        DontDestroyByTag("GameController");
+        DontDestroyByTag("UIManager");
+    }
+
+    private void DontDestroyByTag(string tag) {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag(tag);
 
         if (objs.Length > 1)
         {
@@ -16,3 +21,4 @@ public class DontDestroy : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 }
+

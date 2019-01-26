@@ -4,46 +4,75 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    [SerializeField]
-    private float _speed = 3f;
 
-    [SerializeField]
-    private float _rotationSensitivity = 5f;
+    //Fields
+    //-Settings
+    public float Speed = 3f;
+    public float RotationSensitivity = 5f;
 
+    public bool IsSmoothCamera = false;
+    public float SmoothTime = 0.5f;
+
+    //--Shaking
+    [Header("Shaking")]
     [SerializeField]
-    private bool _isSmoothCamera;
+    public bool IsShakeing = true;
     
-    [Range(0.0f, 1.0f)]
-    public float smoothTime = 0.5f;
+    public float AngleSpeed = 0.05f;
+    private float shakeAmplitude = 0;
+    public float maxShakeAmplitude = 20;
 
-    private bool _isFirstRotation;
-
-    //private Transform[] _childTransforms;
-
-
-
+    //--Body
     public GameObject BodyPrefab = null;
     public GameObject TailPrefab = null;
     public float FirstBodyElementScale = 1.0f;
     public float LastBodyElemntScale = 0.2f;
-    
     public int BodyElementsCount = 0;
     
-    private int _bodyElementsCountOld = 0;
-    private GameObject[] _bodyElements = null;
+    //-Runtime
+    private float baseRotation = 0f;
     
-    
-    private void Start() {        }
+    //--Shaking
+    private bool isGoRight = false;
 
-    void SetBodyElementsCount(int Count) { BodyElementsCount = Count; }
+    //--Body
+    private int _bodyElementsCountOld = 0;
+    private GameObject[] _bodyElements = null;    
+
+    //--Stunning
+    private float _stunTime = 0.0f;
     
+    //Methods
+    private void FixedUpdate() {
+
+        if (_stunTime > 0.0f) {
+            _stunTime -= Time.deltaTime;
+        } else{
+            _stunTime = 0.0f;
+            
+            MoveForward();
+            RotatePlayer();
+
+            UpdateBodyElements();
+            UpdateBodyElementPositions();
+            UpdateShaking();
+            
+            SetRotation(baseRotation + shakeAmplitude);
+        }
+
+        CameraFollow();
+    }
+
+    //-Body update
     private void UpdateBodyElements() {
+        
+        //Initialize body
         if (_bodyElementsCountOld == BodyElementsCount) return;
         if (0 == BodyElementsCount) {
             _bodyElements = null;
             return;
         }
-        
+
         //Update body objects reusing old size
         GameObject[] theBodyElementsOld = _bodyElements;
         _bodyElements = new GameObject[BodyElementsCount];
@@ -62,7 +91,7 @@ public class PlayerMovement : MonoBehaviour {
 
         Vector3 theNextElementPosition = (0 != theSavedElementsCount) ?
                 _bodyElements[theSavedElementsCount - 1].transform.position : gameObject.transform.position;
-        
+
         for (int i = theSavedElementsCount; i < BodyElementsCount - 1; ++i) {
             _bodyElements[i] = Instantiate(BodyPrefab, theNextElementPosition, transform.rotation);
             _bodyElements[i].GetComponent<WormBodyElement>().SetNextPosition(theNextElementPosition);
@@ -73,18 +102,18 @@ public class PlayerMovement : MonoBehaviour {
                             (FirstBodyElementScale - LastBodyElemntScale) * ((float)i / (BodyElementsCount - 1));
             _bodyElements[i].transform.localScale = theNewScale;
         }
-        
+
         _bodyElements[BodyElementsCount - 1] = Instantiate(TailPrefab, theNextElementPosition, transform.rotation);
         _bodyElements[BodyElementsCount - 1].GetComponent<WormBodyElement>().SetNextPosition(theNextElementPosition);
         theNextElementPosition = _bodyElements[BodyElementsCount - 1].transform.position;
-        
+
         theBodyElementsOld = null;
         _bodyElementsCountOld = BodyElementsCount;
     }
-
+    
     private void UpdateBodyElementPositions() {
         if (0 == BodyElementsCount) return;
-        
+
         Vector3 theNextElementPosition = gameObject.transform.position;
         for (int i = 0; i < BodyElementsCount; ++i) {
             WormBodyElement theWormBodyElement = _bodyElements[i].GetComponent<WormBodyElement>();
@@ -94,41 +123,27 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
     
-    private void FixedUpdate() {
-        MoveForward();
-        RotatePlayer();
-        
-        UpdateBodyElements();
-        UpdateBodyElementPositions();
-        
-        CameraFollow();
-    }
-
+    //-Moving by mouse
     private void MoveForward() {
-        transform.position += transform.right * _speed * Time.deltaTime;
+        transform.position += transform.right * Speed * Time.deltaTime;
     }
 
     private void RotatePlayer() {
         float mouseAngle = CalculateMouseAngle();
-
-        float oldRoration = GetRotation();
-        float CurrentRotation = GetRotation();
+        
+        float CurrentRotation = baseRotation;
         float DeltaAngle = Mathf.DeltaAngle(CurrentRotation, mouseAngle);
-               
-        if (Math.Abs(DeltaAngle) <= _rotationSensitivity) {
+
+        if (Math.Abs(DeltaAngle) <= RotationSensitivity) {
             CurrentRotation = mouseAngle;
-            _isFirstRotation = false;
         } else {
             float DeltaSign = DeltaAngle / Math.Abs(DeltaAngle);
-            float ActualRotationSpeed = _rotationSensitivity * DeltaSign;
-        
+            float ActualRotationSpeed = RotationSensitivity * DeltaSign;
+
             CurrentRotation += ActualRotationSpeed;
 
         }
-
-        SetRotation(CurrentRotation);
-        
-        _isFirstRotation = true;
+        baseRotation = CurrentRotation;
     }
 
     private float CalculateMouseAngle() {
@@ -136,26 +151,49 @@ public class PlayerMovement : MonoBehaviour {
 
         float dx = mouseCoords.x - transform.position.x;
         float dy = mouseCoords.y - transform.position.y;
-        
-        return (float) (Mathf.Rad2Deg * Math.Atan2(dy, dx));
+
+        return (float)(Mathf.Rad2Deg * Math.Atan2(dy, dx));
     }
 
     private float GetRotation() { return transform.rotation.eulerAngles.z; }
-    
+
     private void SetRotation(float Rotation) {
         transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Rotation);
     }
 
+    //-Camera following
     private void CameraFollow() {
         Transform camera = GameObject.FindGameObjectWithTag("MainCamera").gameObject.transform;
-        if (!_isSmoothCamera) {
-            camera.position = new Vector3(transform.position.x, transform.position.y,  camera.position.z);
+        if (!IsSmoothCamera) {
+            camera.position = new Vector3(transform.position.x, transform.position.y, camera.position.z);
         } else {
             Vector2 cameraVelocity = Vector2.zero;
             Vector2 smoothDamp = Vector2.SmoothDamp(new Vector2(camera.position.x, camera.position.y),
                 new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), ref cameraVelocity,
-                smoothTime);
-            camera.position = new Vector3(smoothDamp.x,smoothDamp.y, camera.position.z);  
+                SmoothTime);
+            camera.position = new Vector3(smoothDamp.x, smoothDamp.y, camera.position.z);
+        }
+    }
+
+    //-Shaking
+    private void UpdateShaking() {
+        if (!IsShakeing) return;
+        if (shakeAmplitude < -maxShakeAmplitude || shakeAmplitude > maxShakeAmplitude) {
+            isGoRight = !isGoRight;
+        }
+        shakeAmplitude += (isGoRight) ? AngleSpeed * Time.deltaTime : -AngleSpeed * Time.deltaTime;
+    }
+    
+    //-Stuning
+    public void SetStunTime(float InStunTime){ _stunTime = InStunTime; }
+    
+    //-Pushing away
+    public void PushAway(float Distance){
+        transform.position -= transform.right * Distance;
+        
+        foreach (GameObject theBodyElement in _bodyElements){
+            theBodyElement.transform.position = transform.position;
+            theBodyElement.GetComponent<WormBodyElement>().SetNextPosition(transform.position);
         }
     }
 }

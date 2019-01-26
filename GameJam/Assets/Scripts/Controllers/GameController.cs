@@ -1,91 +1,45 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState {
     Win,
     Lose,
     InProgress,
-    None
+    None,
 }
 
 public class GameController : MonoBehaviour {
-    private const int MaxHumanHealth = 1000;
-
-    private int _currentHumanHealth;
-    
-    private const int StartScore = 200;
-    private const int WinScore = 1000;
-
-    private int _currentScore;
+    //Fields
+    //-Links
+    public UIManager _UIManager;
     
     private GameState _gameState = GameState.None;
-    
-    public void InitGame(){}
 
-    public void InitLevel() {
-        _currentHumanHealth = MaxHumanHealth;
-        _currentScore = StartScore;
+    private void Awake() {
     }
 
-
-    public void CheckWormAction(TextureSetupScript.EMapMaterial state) {
-        switch (state) {
-            case TextureSetupScript.EMapMaterial.Meat:
-                EatMeat();
+    private void OnGameStateChanged() {
+        switch (_gameState) {
+            case GameState.Win:
+                _UIManager.ShowWinPanel();
                 break;
-            case TextureSetupScript.EMapMaterial.Empty:
-                MoveEmptySpace();
+            case GameState.Lose:
+                _UIManager.ShowLosePanel();
                 break;
-            case TextureSetupScript.EMapMaterial.Bone:
-                EatBone();
-                break;
-            case TextureSetupScript.EMapMaterial.Brain:
-                EatOrgan();
+            case GameState.InProgress:
+                _UIManager.ShowHUD();
                 break;
             default:
-                Debug.Log("Do not handle " + state + " state");
+                Debug.LogError("Do not use " + _gameState + " state");
                 break;
         }
-        
-        CheckGameState();
-    }
-    
-    private void EatMeat() {
     }
 
-    private void MoveEmptySpace() {
-        
-    }
-
-    private void EatBone() {
-        
-    }
-
-    private void EatOrgan() {
-        
-    }
-
-    private void ReduceHumanHealth(int points) {
-        _currentHumanHealth -= points;
-    }
-
-    private void ReduceScore(int points) {
-        _currentScore -= points;
-    }
-
-    private void AddScore(int points) {
-        _currentScore += points;
-    }
-
-    private void CheckGameState() {
-        if (_currentScore <= 0 || _currentHumanHealth <= 0) {
-            _gameState = GameState.Lose;
-        }else if (WinScore <= _currentScore) {
-            _gameState = GameState.Win;
-
-        } else {
-            _gameState = GameState.InProgress;
-        }
+    private void UpdateUIInfo() {
+        //_UIManager.SetScoreText(_currentScore);
+        //_UIManager.SetHumanHealth(_currentHumanHealth);
     }
 }
