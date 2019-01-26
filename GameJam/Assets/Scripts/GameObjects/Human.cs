@@ -36,4 +36,9 @@ public class Human : MonoBehaviour
         if (LeftToEatPercent > MaxMeatLeftToEatPercent) return Damage.Critical;
         return Damage.Death;
     }
+
+    public float GetTotalPoints() {
+        float LeftToEatPercent = MeatEatableObject.GetLeftToEatPercent();
+        return LeftToEatPercent;
+    }
 }

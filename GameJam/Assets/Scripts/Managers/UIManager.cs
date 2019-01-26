@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour {
 
    private void Update() {
       _hud.SetScoreText((int)_playerClearController.GetCurrentPoints());
+      _hud.SetHumanHealth(_human.GetTotalPoints());
    }
    
    //--Show & Hide

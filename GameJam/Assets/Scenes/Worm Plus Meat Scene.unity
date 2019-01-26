@@ -461,6 +461,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EatingRadius: 0.2
+  BoneBlastRadius: 0.4
+  BoneBlashStunTime: 2
+  BoneBlashPushAwayDistance: 2
   PointsPerFullMeatCircle: 10
   PenaltyIfNoEatAtTick: 0.1
   CurrentPoits: 0
@@ -750,6 +753,11 @@ PrefabInstance:
       propertyPath: _UIManager
       value: 
       objectReference: {fileID: 222922696}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: MeatEatableObject
+      value: 
+      objectReference: {fileID: 1852680681}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e84778ea466075e419c2cc0704e26c79, type: 3}
 --- !u!1 &1978364453
