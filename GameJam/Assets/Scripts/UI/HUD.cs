@@ -15,12 +15,12 @@ public class HUD : MonoBehaviour {
 
 
     public void SetScoreText(int score) {
-        var scoreText = Score.GetComponent<TextMeshPro>();
+        var scoreText = Score.GetComponentInChildren<TextMeshProUGUI>();
         scoreText.text = ScorePrefix + score;
     }
 
     public void SetHumanHealth(int health) {
-        var healthText = HumanHealth.GetComponent<TextMeshPro>();
+        var healthText = HumanHealth.GetComponentInChildren<TextMeshProUGUI>();
         healthText.text = HumanHealthPrefix + health;
     }
 }

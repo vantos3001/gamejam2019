@@ -24,9 +24,7 @@ public class UIManager : MonoBehaviour {
    }
 
    private void Update() {
-      //TODO: Just set here UI state from objects state. It's better then base UI updates on event
-      
-      //_hud.SetScoreText((int)_playerClearController.GetCurrentPoints());
+      _hud.SetScoreText((int)_playerClearController.GetCurrentPoints());
    }
    
    //--Show & Hide
