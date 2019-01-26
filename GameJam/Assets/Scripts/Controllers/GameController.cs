@@ -6,6 +6,7 @@ public enum GameState {
     Win,
     Lose,
     InProgress,
+    None
 }
 
 public class GameController : MonoBehaviour {
@@ -17,6 +18,8 @@ public class GameController : MonoBehaviour {
     private int _winScore = 1000;
 
     private int _currentScore;
+
+    private GameState _gameState = GameState.None;
     
     public void InitGame(){}
     
@@ -75,6 +78,13 @@ public class GameController : MonoBehaviour {
     }
 
     private void CheckGameState() {
-        
+        if (_currentScore <= 0 || _currentHumanHealth <= 0) {
+            _gameState = GameState.Lose;
+        }else if (_winScore <= _currentScore) {
+            _gameState = GameState.Win;
+
+        } else {
+            _gameState = GameState.InProgress;
+        }
     }
 }
