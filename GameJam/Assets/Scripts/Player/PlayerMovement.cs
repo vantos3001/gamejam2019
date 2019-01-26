@@ -39,7 +39,31 @@ public class PlayerMovement : MonoBehaviour {
     private int _bodyElementsCountOld = 0;
     private GameObject[] _bodyElements = null;    
 
+    //--Stunning
+    private float _stunTime = 0.0f;
+    
     //Methods
+    private void FixedUpdate() {
+
+        if (_stunTime > 0.0f) {
+            _stunTime -= Time.deltaTime;
+        } else{
+            _stunTime = 0.0f;
+            
+            MoveForward();
+            RotatePlayer();
+
+            UpdateBodyElements();
+            UpdateBodyElementPositions();
+            UpdateShaking();
+            
+            SetRotation(baseRotation + shakeAmplitude);
+        }
+
+        CameraFollow();
+    }
+
+    //-Body update
     private void UpdateBodyElements() {
         
         //Initialize body
@@ -98,20 +122,8 @@ public class PlayerMovement : MonoBehaviour {
             theNextElementPosition = _bodyElements[i].transform.position;
         }
     }
-
-    private void FixedUpdate() {
-        MoveForward();
-        RotatePlayer();
-
-        UpdateBodyElements();
-        UpdateBodyElementPositions();
-
-        CameraFollow();
-        UpdateShaking();
-
-        SetRotation(baseRotation + shakeAmplitude);
-    }
     
+    //-Moving by mouse
     private void MoveForward() {
         transform.position += transform.right * Speed * Time.deltaTime;
     }
@@ -149,6 +161,7 @@ public class PlayerMovement : MonoBehaviour {
         transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Rotation);
     }
 
+    //-Camera following
     private void CameraFollow() {
         Transform camera = GameObject.FindGameObjectWithTag("MainCamera").gameObject.transform;
         if (!IsSmoothCamera) {
@@ -162,11 +175,25 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    //-Shaking
     private void UpdateShaking() {
         if (!IsShakeing) return;
         if (shakeAmplitude < -maxShakeAmplitude || shakeAmplitude > maxShakeAmplitude) {
             isGoRight = !isGoRight;
         }
         shakeAmplitude += (isGoRight) ? AngleSpeed * Time.deltaTime : -AngleSpeed * Time.deltaTime;
+    }
+    
+    //-Stuning
+    public void SetStunTime(float InStunTime){ _stunTime = InStunTime; }
+    
+    //-Pushing away
+    public void PushAway(float Distance){
+        transform.position -= transform.right * Distance;
+        
+        foreach (GameObject theBodyElement in _bodyElements){
+            theBodyElement.transform.position = transform.position;
+            theBodyElement.GetComponent<WormBodyElement>().SetNextPosition(transform.position);
+        }
     }
 }

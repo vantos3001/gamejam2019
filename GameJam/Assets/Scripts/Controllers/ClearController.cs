@@ -7,6 +7,11 @@ public class ClearController : MonoBehaviour {
     //Fields
     //-Settings
     public float EatingRadius = 0.2f;
+    
+    public float BoneBlastRadius = 0.4f;
+    public float BoneBlashStunTime = 2.0f;
+    public float BoneBlashPushAwayDistance = 2.0f;
+    
     public float PointsPerFullMeatCircle = 10.0f;
     public float PenaltyIfNoEatAtTick = 0.01f;
     
@@ -21,9 +26,7 @@ public class ClearController : MonoBehaviour {
     
     //Methods
     //-API
-    public float GetCurrentPoints(){
-        return CurrentPoits;
-    }
+    public float GetCurrentPoints(){ return CurrentPoits; }
 
     //-Implementation
     private void Start(){
@@ -54,10 +57,24 @@ public class ClearController : MonoBehaviour {
                 case EatableObject.EEatableObjectType.Meat:
                     _eatTickInfo_AteMeatCirclePercent += theEatableObjectsEatingData.Percent;
                     break;
+                
+                case EatableObject.EEatableObjectType.Bone:
+                    _eatTickInfo_AteMeatCirclePercent = 0.0f;
+                    ProcessBoneBlast();
+                    return;
             }
         }
 
         theEatableWorld.EatInCircle(EatPosition, EatingRadius);
+    }
+
+    private void ProcessBoneBlast(){
+        Vector2 EatPosition = new Vector2(transform.position.x, transform.position.y);
+        EatableWorld theEatableWorld = Object.FindObjectOfType<EatableWorld>();
+        theEatableWorld.EatInCircle(EatPosition, BoneBlastRadius);
+        
+        _playerMovement.SetStunTime(BoneBlashStunTime);
+        _playerMovement.PushAway(BoneBlashPushAwayDistance);
     }
     
     private void Update_ProcessEatTickStatistic() {

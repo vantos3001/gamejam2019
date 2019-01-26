@@ -20,14 +20,27 @@ public class EatableWorld : MonoBehaviour
 
     public EatableObjectWithPercent[] GetObjectsPercentInCircle(Vector2 WorldPosition, float WorldRadius){
         EatableObject[] EatableObjects = Object.FindObjectsOfType<EatableObject>();
-        EatableObjectWithPercent[] Result = new EatableObjectWithPercent[EatableObjects.Length];
 
-        for (int theIndex = 0; theIndex < EatableObjects.Length; ++theIndex){
+        List<EatableObjectWithPercent> ResultDynamic = new List<EatableObjectWithPercent>();
+        for (int theIndex = 0; theIndex < EatableObjects.Length; ++theIndex)
+        {
             EatableObject theEatableObject = EatableObjects[theIndex];
-            Result[theIndex].EatableObject = theEatableObject;
-            Result[theIndex].Percent = theEatableObject.GetObjectPercentInCircle(WorldPosition, WorldRadius);
-        }
+            float Percent = theEatableObject.GetObjectPercentInCircle(WorldPosition, WorldRadius);
+            if (Percent == 0.0f) continue;
 
+            EatableObjectWithPercent theEatableObjectWithPercent = new EatableObjectWithPercent();
+            theEatableObjectWithPercent.EatableObject = theEatableObject;
+            theEatableObjectWithPercent.Percent = Percent;
+            
+            ResultDynamic.Add(theEatableObjectWithPercent);
+        }
+        
+        EatableObjectWithPercent[] Result = new EatableObjectWithPercent[ResultDynamic.Count];
+        int theResultIndex = 0;
+        foreach (EatableObjectWithPercent theEatableObjectWithPercent in ResultDynamic){
+            Result[theResultIndex++] = theEatableObjectWithPercent;
+        }
+        
         return Result;
     }
 }

@@ -58,9 +58,8 @@ public class EatableObject : MonoBehaviour
     }
 
     //-Life access
-    float LeftToEatPercent(){
-        return _leftPixelsCount / _startingPixelsCount;
-    }
+    public float GetLeftToEatPercent() { return ((float)_leftPixelsCount) / _startingPixelsCount; }
+    public float GetAtePercent() { return 1.0f - GetLeftToEatPercent(); }
     
     //-Eatable World API
     public void EatInCircle(Vector2 WorldPosition, float WorldRadius) {
