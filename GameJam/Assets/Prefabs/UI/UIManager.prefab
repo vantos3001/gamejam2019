@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseCanvas: {fileID: 604785923722927901}
-  IndicatorPanel: {fileID: 2001664966870188065}
+  HUD: {fileID: 8642064142308036827}
   WinPanel: {fileID: 4781792199135103492}
   LosePanel: {fileID: 7816030041118104265}
   NextScenePanel: {fileID: 7344214607458518370}
@@ -249,6 +249,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8788235297525986615, guid: 1f357483c69a61f428e2c733f0bc01a6,
+        type: 3}
+      propertyPath: Score
+      value: 
+      objectReference: {fileID: 2582789604022737692}
+    - target: {fileID: 8788235297525986615, guid: 1f357483c69a61f428e2c733f0bc01a6,
+        type: 3}
+      propertyPath: HumanHealth
+      value: 
+      objectReference: {fileID: 6832502742229484127}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f357483c69a61f428e2c733f0bc01a6, type: 3}
 --- !u!224 &604785923722927902 stripped
@@ -263,9 +273,21 @@ Canvas:
     type: 3}
   m_PrefabInstance: {fileID: 5262776874483113761}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2001664966870188065 stripped
+--- !u!1 &8642064142308036827 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5966834106272620288, guid: 1f357483c69a61f428e2c733f0bc01a6,
+  m_CorrespondingSourceObject: {fileID: 4532842392568303610, guid: 1f357483c69a61f428e2c733f0bc01a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5262776874483113761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2582789604022737692 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7700815454711579709, guid: 1f357483c69a61f428e2c733f0bc01a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 5262776874483113761}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6832502742229484127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1718350462329838974, guid: 1f357483c69a61f428e2c733f0bc01a6,
     type: 3}
   m_PrefabInstance: {fileID: 5262776874483113761}
   m_PrefabAsset: {fileID: 0}

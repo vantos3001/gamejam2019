@@ -92,7 +92,7 @@ public class GameController : MonoBehaviour {
     }
 
     private void CheckGameState() {
-        _UIManager.OpenWinPanel();
+        _UIManager.ShowWinPanel();
         var oldState = _gameState;
         
         if (_currentScore <= 0 || _currentHumanHealth <= 0) {
@@ -114,10 +114,16 @@ public class GameController : MonoBehaviour {
     private void OnGameStateChanged() {
         switch (_gameState) {
             case GameState.Win:
-                _UIManager.OpenWinPanel();
+                _UIManager.ShowWinPanel();
                 break;
             case GameState.Lose:
-                _UIManager.OpenLosePanel();
+                _UIManager.ShowLosePanel();
+                break;
+            case GameState.InProgress:
+                _UIManager.ShowHUD();
+                break;
+            default:
+                Debug.LogError("Do not use " + _gameState + " state");
                 break;
         }
     }
