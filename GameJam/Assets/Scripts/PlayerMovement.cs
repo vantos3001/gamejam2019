@@ -18,22 +18,89 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool _isFirstRotation;
 
-    private Transform[] _childTransforms;
+    //private Transform[] _childTransforms;
 
-    private void Start() {
-        var gameObjects = GameObject.FindGameObjectsWithTag("PlayerBody");
-        _childTransforms = new Transform[gameObjects.Length];
-        for (int i = 0, count = gameObjects.Length; i < count; i++) {
-            _childTransforms[i] = gameObjects[i].transform;
+
+
+    public GameObject BodyPrefab = null;
+    public GameObject TailPrefab = null;
+    public float FirstBodyElementScale = 1.0f;
+    public float LastBodyElemntScale = 0.2f;
+    
+    public int BodyElementsCount = 0;
+    
+    private int _bodyElementsCountOld = 0;
+    private GameObject[] _bodyElements = null;
+    
+    
+    private void Start() {        }
+
+    void SetBodyElementsCount(int Count) { BodyElementsCount = Count; }
+    
+    private void UpdateBodyElements() {
+        if (_bodyElementsCountOld == BodyElementsCount) return;
+        if (0 == BodyElementsCount) {
+            _bodyElements = null;
+            return;
+        }
+        
+        //Update body objects reusing old size
+        GameObject[] theBodyElementsOld = _bodyElements;
+        _bodyElements = new GameObject[BodyElementsCount];
+
+        int theSavedElementsCount = Math.Min(
+            BodyElementsCount, (null != theBodyElementsOld) ? theBodyElementsOld.Length : 0
+        );
+        for (int i = 0; i < theSavedElementsCount; ++i) {
+            _bodyElements[i] = theBodyElementsOld[i];
+
+            Vector3 theNewScale = _bodyElements[i].transform.localScale;
+            theNewScale.y = LastBodyElemntScale +
+                            (FirstBodyElementScale - LastBodyElemntScale) * ((float)i / (BodyElementsCount - 1));
+            _bodyElements[i].transform.localScale = theNewScale;
+        }
+
+        Vector3 theNextElementPosition = (0 != theSavedElementsCount) ?
+                _bodyElements[theSavedElementsCount - 1].transform.position : gameObject.transform.position;
+        
+        for (int i = theSavedElementsCount; i < BodyElementsCount - 1; ++i) {
+            _bodyElements[i] = Instantiate(BodyPrefab, theNextElementPosition, transform.rotation);
+            _bodyElements[i].GetComponent<WormBodyElement>().SetNextPosition(theNextElementPosition);
+            theNextElementPosition = _bodyElements[i].transform.position;
+            
+            Vector3 theNewScale = _bodyElements[i].transform.localScale;
+            theNewScale.y = FirstBodyElementScale -
+                            (FirstBodyElementScale - LastBodyElemntScale) * ((float)i / (BodyElementsCount - 1));
+            _bodyElements[i].transform.localScale = theNewScale;
+        }
+        
+        _bodyElements[BodyElementsCount - 1] = Instantiate(TailPrefab, theNextElementPosition, transform.rotation);
+        _bodyElements[BodyElementsCount - 1].GetComponent<WormBodyElement>().SetNextPosition(theNextElementPosition);
+        theNextElementPosition = _bodyElements[BodyElementsCount - 1].transform.position;
+        
+        theBodyElementsOld = null;
+        _bodyElementsCountOld = BodyElementsCount;
+    }
+
+    private void UpdateBodyElementPositions() {
+        if (0 == BodyElementsCount) return;
+        
+        Vector3 theNextElementPosition = gameObject.transform.position;
+        for (int i = 0; i < BodyElementsCount; ++i) {
+            WormBodyElement theWormBodyElement = _bodyElements[i].GetComponent<WormBodyElement>();
+            theWormBodyElement.ApplyNextPosition();
+            theWormBodyElement.SetNextPosition(theNextElementPosition);
+            theNextElementPosition = _bodyElements[i].transform.position;
         }
     }
-
-    private void Update() {
-    }
-
+    
     private void FixedUpdate() {
         MoveForward();
         RotatePlayer();
+        
+        UpdateBodyElements();
+        UpdateBodyElementPositions();
+        
         CameraFollow();
     }
 
@@ -61,17 +128,7 @@ public class PlayerMovement : MonoBehaviour {
 
         SetRotation(CurrentRotation);
         
-        RotateChildren(oldRoration);
-        
         _isFirstRotation = true;
-    }
-
-    private void RotateChildren(float oldAngle) {
-        foreach (var childTransform in _childTransforms) {
-            var childAngle = transform.rotation.eulerAngles.z;
-            childTransform.rotation = Quaternion.Euler(childTransform.rotation.x, childTransform.rotation.y, oldAngle);
-            oldAngle = childAngle;
-        }
     }
 
     private float CalculateMouseAngle() {
@@ -83,9 +140,7 @@ public class PlayerMovement : MonoBehaviour {
         return (float) (Mathf.Rad2Deg * Math.Atan2(dy, dx));
     }
 
-    private float GetRotation() {
-        return transform.rotation.eulerAngles.z;
-    }
+    private float GetRotation() { return transform.rotation.eulerAngles.z; }
     
     private void SetRotation(float Rotation) {
         transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Rotation);
