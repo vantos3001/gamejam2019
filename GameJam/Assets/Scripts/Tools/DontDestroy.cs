@@ -6,9 +6,8 @@ public class DontDestroy : MonoBehaviour
 {
     void Awake()
     {
-        
         DontDestroyByTag("GameController");
-        
+        DontDestroyByTag("UIManager");
     }
 
     private void DontDestroyByTag(string tag) {
@@ -22,3 +21,4 @@ public class DontDestroy : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 }
+

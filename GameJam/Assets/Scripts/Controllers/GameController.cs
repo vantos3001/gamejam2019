@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,10 @@ public enum GameState {
 }
 
 public class GameController : MonoBehaviour {
+    private static GameController _instance;
+
+    public UIManager _UIManager;
+    
     private const int MaxHumanHealth = 1000;
 
     private int _currentHumanHealth;
@@ -20,8 +25,16 @@ public class GameController : MonoBehaviour {
     private int _currentScore;
     
     private GameState _gameState = GameState.None;
-    
-    public void InitGame(){}
+
+    private event Action GameStateChanged;
+
+    private void Awake() {
+        InitGame();
+        GameStateChanged += OnGameStateChanged;
+    }
+
+    public void InitGame() {
+    }
 
     public void InitLevel() {
         _currentHumanHealth = MaxHumanHealth;
@@ -79,6 +92,9 @@ public class GameController : MonoBehaviour {
     }
 
     private void CheckGameState() {
+        _UIManager.OpenWinPanel();
+        var oldState = _gameState;
+        
         if (_currentScore <= 0 || _currentHumanHealth <= 0) {
             _gameState = GameState.Lose;
         }else if (WinScore <= _currentScore) {
@@ -87,5 +103,30 @@ public class GameController : MonoBehaviour {
         } else {
             _gameState = GameState.InProgress;
         }
+
+        if (_gameState != oldState) {
+            if (GameStateChanged != null) {
+                GameStateChanged();
+            }
+        }
+    }
+
+    private void OnGameStateChanged() {
+        switch (_gameState) {
+            case GameState.Win:
+                _UIManager.OpenWinPanel();
+                break;
+            case GameState.Lose:
+                _UIManager.OpenLosePanel();
+                break;
+        }
+    }
+        
+
+    public static GameController instance() {
+        if (_instance == null) {
+            _instance = new GameController();
+        }
+        return _instance;
     }
 }
