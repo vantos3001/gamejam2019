@@ -63,22 +63,47 @@ public class TextureSetupScript : MonoBehaviour {
         int CenterX = (int)PixelPosition.x;
         int CenterY = (int)PixelPosition.y;
 
-        Color[] BlockColors = _texture.GetPixels(CenterX - Radius, CenterY - Radius, Diametr, Diametr);
+
+        //Debug.Log(CenterX + " : " + CenterY + " : " + Radius);
+        SetMaterialInCircleByRect(Material, CenterX, CenterY, Radius);
+    }
+
+    private void SetMaterialInCircleByRect(EMapMaterial Material, int CenterX, int CenterY, int Radius) {
+        int startPositionX = CenterX - Radius;
+        int startPositionY = CenterY - Radius;
+        //Debug.Log(startPositionY + " to " + (startPositionY + 2 * Radius) + " : " + startPositionX + " to " + (startPositionX + 2 * Radius) + " : "+ Radius);
+        
+        int Diametr = 2 * Radius;
+        int aRadius = Radius;
+        Radius = (int)(0.8 * aRadius);
+        //Debug.Log(Radius + " : " + aRadius);
 
         for (int y = 0; y < Diametr; ++y) {
-            int DeltaY = Radius - y;
-            for (int x = 0; x < Diametr; ++x) {
-                int DeltaX = Radius - x;
+            int DeltaY = aRadius - y;
+            if ((startPositionY + y) < 0) continue;
+            if ((startPositionY + y) > _texture.height) break;
+                for (int x = 0; x < Diametr; ++x) {
+                    if ((startPositionX + x) < 0) continue;
+                    if ((startPositionX + x) > _texture.width) break;
 
-                int DeltaRadius = (int)Math.Sqrt(DeltaX * DeltaX + DeltaY * DeltaY);
-                if (DeltaRadius > Radius) continue;
+                    int DeltaX = aRadius - x;
+                    int DeltaRadius = (int)Math.Sqrt(DeltaX * DeltaX + DeltaY * DeltaY);
+                    if (DeltaRadius > aRadius) continue;
 
-                BlockColors[y * Diametr + x] = GetColorForMaterial(Material);
-            }
+                    if (DeltaRadius <= aRadius && DeltaRadius >= Radius) {
+                        //Debug.Log(DeltaRadius + " : " + aRadius + " : " + Radius);
+                        Color color = _texture.GetPixel(startPositionX + x, startPositionY + y);
+                        color.a = (0 != color.a) ? 0.5f : 0.0f;
+                        _texture.SetPixel(startPositionX + x, startPositionY + y, color);
+                    } else {
+                    _texture.SetPixel(startPositionX + x, startPositionY + y, GetColorForMaterial(Material));
+                    }
+                    
+                    
+                }
         }
 
-        _texture.SetPixels(CenterX - Radius, CenterY - Radius, Diametr, Diametr, BlockColors);
-        _texture.Apply(false);
+        _texture.Apply();
     }
 
     public Dictionary<EMapMaterial, int> GetMaterialsInCircle(Vector2 WorldPosition, float WorldRadius) {
