@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Preloader.unity
+    guid: e2bd403dc0891394fa81ecec01febf4e
+  - enabled: 1
+    path: Assets/Scenes/Worm Plus Meat Scene.unity
+    guid: 359de850554068e438ed339b7c8a44af
   m_configObjects: {}
