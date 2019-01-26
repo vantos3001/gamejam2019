@@ -2,12 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState {
     Win,
     Lose,
     InProgress,
-    None
+    None,
 }
 
 public class GameController : MonoBehaviour {
@@ -19,10 +20,20 @@ public class GameController : MonoBehaviour {
 
     private int _currentHumanHealth;
     
-    private const int StartScore = 200;
-    private const int WinScore = 1000;
+    public int StartScore = 200;
+    public  int WinScore = 1000;
 
     private int _currentScore;
+
+    public int MeatReduceHumanHealth = 1;
+    public int OrganReduceHumanHealth = 1;
+    public int BoneReduceHumanHealth = 1;
+
+    public int EmptySpaceReduceScore = 1;
+    public int BoneReduceScore = 1;
+
+    public int MeatAddScore = 1;
+    public int OrganAddScore = 1;
     
     private GameState _gameState = GameState.None;
 
@@ -34,11 +45,16 @@ public class GameController : MonoBehaviour {
     }
 
     public void InitGame() {
+        if (SceneManager.GetActiveScene().name == "Worm Plus Meat Scene") {
+            InitLevel();
+        }
     }
 
     public void InitLevel() {
         _currentHumanHealth = MaxHumanHealth;
         _currentScore = StartScore;
+        
+        UpdateUIInfo();
     }
 
 
@@ -61,21 +77,29 @@ public class GameController : MonoBehaviour {
                 break;
         }
         
+        UpdateUIInfo();
         CheckGameState();
     }
     
     private void EatMeat() {
+        AddScore(MeatAddScore);
+        ReduceHumanHealth(MeatReduceHumanHealth);
     }
 
     private void MoveEmptySpace() {
+        ReduceScore(EmptySpaceReduceScore);
         
     }
 
     private void EatBone() {
+        ReduceScore(BoneReduceScore);
+        ReduceHumanHealth(BoneReduceHumanHealth);
         
     }
 
     private void EatOrgan() {
+        AddScore(OrganAddScore);
+        ReduceHumanHealth(OrganReduceHumanHealth);
         
     }
 
@@ -92,7 +116,6 @@ public class GameController : MonoBehaviour {
     }
 
     private void CheckGameState() {
-        _UIManager.ShowWinPanel();
         var oldState = _gameState;
         
         if (_currentScore <= 0 || _currentHumanHealth <= 0) {
@@ -126,6 +149,11 @@ public class GameController : MonoBehaviour {
                 Debug.LogError("Do not use " + _gameState + " state");
                 break;
         }
+    }
+
+    private void UpdateUIInfo() {
+        _UIManager.SetScoreText(_currentScore);
+        _UIManager.SetHumanHealth(_currentHumanHealth);
     }
         
 
