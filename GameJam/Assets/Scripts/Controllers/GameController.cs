@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour {
     private const int WinScore = 1000;
 
     private int _currentScore;
-
+    
     private GameState _gameState = GameState.None;
     
     public void InitGame(){}
@@ -30,7 +30,6 @@ public class GameController : MonoBehaviour {
 
 
     public void CheckWormAction(TextureSetupScript.EMapMaterial state) {
-        //realize EMapMaterial state
         switch (state) {
             case TextureSetupScript.EMapMaterial.Meat:
                 EatMeat();
@@ -53,7 +52,6 @@ public class GameController : MonoBehaviour {
     }
     
     private void EatMeat() {
-        
     }
 
     private void MoveEmptySpace() {
