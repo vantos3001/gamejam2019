@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour {
     public bool IsShakeing = true;
     
     public float AngleSpeed = 0.05f;
-    public float shakeAmplitude = 0;
+    private float shakeAmplitude = 0;
     public float maxShakeAmplitude = 20;
 
     //--Body
