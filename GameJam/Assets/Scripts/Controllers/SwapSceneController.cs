@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class SwapSceneController
+public class SwapSceneController : MonoBehaviour
 {
-    public static void SwapScene() {
+    public void SwapScene() {
         var currentScene = SceneManager.GetActiveScene();
         if (currentScene.name == "Preloader") {
             SceneManager.LoadScene("Worm Plus Meat Scene");
