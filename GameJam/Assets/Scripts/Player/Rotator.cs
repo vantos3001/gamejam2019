@@ -39,7 +39,7 @@ public class Rotator : MonoBehaviour
         if (shakeAmplitude < -maxShakeAmplitude || shakeAmplitude > maxShakeAmplitude) {
             isGoRight = !isGoRight;
         }
-        Debug.Log(shakeAmplitude);
+//        Debug.Log(shakeAmplitude);
         shakeAmplitude += (isGoRight) ? angleSpeed * Time.deltaTime : -angleSpeed * Time.deltaTime;
     }
 }

@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour {
     //-Links
     public UIManager _UIManager;
     
-    public int WinScore = 3000;
+    public int WinScore = 2000;
     
     private ClearController _playerClearController = null;
     private Human _human = null;
@@ -38,6 +38,18 @@ public class GameController : MonoBehaviour {
     private void Start() {
         _playerClearController = FindObjectOfType<ClearController>();
         _human = FindObjectOfType<Human>();
+        
+        LoadLevel();
+    }
+
+    private void LoadLevel() {
+        GameState = GameState.InProgress;
+    }
+
+    private void FixedUpdate() {
+        if (GameState == GameState.InProgress) {
+            CheckGameState();
+        }
     }
 
     private void OnGameStateChanged() {
@@ -56,8 +68,12 @@ public class GameController : MonoBehaviour {
                 break;
         }
     }
+    
 
-    public void CheckGameState(int score, Human.Damage humanState) {
+    public void CheckGameState() {
+        var score = GetCurrentScore();
+        var humanState = GetHumanState();
+        
         if (score <= 0 || humanState == Human.Damage.Death) {
             GameState = GameState.Lose;
         }
@@ -74,6 +90,10 @@ public class GameController : MonoBehaviour {
     public int GetHumanPerCent() {
         var healthPerCent = (int)(_human.GetTotalPoints() * 100);
         return healthPerCent;
+    }
+
+    public Human.Damage GetHumanState() {
+        return _human.GetTotalDamage();
     }
 
     private void UpdateUIInfo() {
