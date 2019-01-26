@@ -6,7 +6,13 @@ public class DontDestroy : MonoBehaviour
 {
     void Awake()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
+        
+        DontDestroyByTag("GameController");
+        
+    }
+
+    private void DontDestroyByTag(string tag) {
+        GameObject[] objs = GameObject.FindGameObjectsWithTag(tag);
 
         if (objs.Length > 1)
         {
