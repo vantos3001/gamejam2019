@@ -11,7 +11,7 @@ public class SwapSceneController : MonoBehaviour
     }
 
     public static void RestartGame() {
-        SceneManager.LoadScene("Worm Plus Meat Scene");
+        SceneManager.LoadScene("ActualyLastTestLevelScene");
     }
 
     public static void WatchVideo(){

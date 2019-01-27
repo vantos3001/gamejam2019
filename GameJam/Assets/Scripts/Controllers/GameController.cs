@@ -61,6 +61,7 @@ public class GameController : MonoBehaviour {
                 break;
             case GameState.Lose:
                 _UIManager.ShowLosePanel();
+                StartCoroutine(RealoadGame());
                 break;
             case GameState.InProgress:
                 _UIManager.ShowHUD();
@@ -73,6 +74,12 @@ public class GameController : MonoBehaviour {
                 Debug.LogError("Do not use " + _gameState + " state");
                 break;
         }
+    }
+    
+    IEnumerator RealoadGame()
+    {
+        yield return new WaitForSeconds(5);
+        SwapSceneController.RestartGame();
     }
     
 

@@ -76,10 +76,12 @@ public class EatableObject : MonoBehaviour
         
         int theStartX = (int)Mathf.Clamp(CenterX - Radius, 0.0f,  _logicTexture.width);
         int theEndX = (int)Mathf.Clamp(CenterX + Radius, 0.0f,  _logicTexture.width);
+        if (theStartX == theEndX) return;
         
         int theStartY = (int)Mathf.Clamp(CenterY - Radius, 0.0f,  _logicTexture.height);
         int theEndY = (int)Mathf.Clamp(CenterY + Radius, 0.0f,  _logicTexture.height);
-                
+        if (theStartY == theEndY) return;
+        
         for (int theY = theStartY; theY < theEndY; ++theY) {
             int DeltaY = theY - CenterY;
             for (int theX = theStartX; theX < theEndX; ++theX) {

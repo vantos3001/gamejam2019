@@ -36,8 +36,6 @@ public class UIManager : MonoBehaviour {
       _hud.SetLungsColor(theHuman.GetLungsState());
       _hud.SetStomachColor(theHuman.GetStomachState());
       _hud.SetKidneysColor(theHuman.GetKidney1State(), theHuman.GetKidney2State());
-      
-      _hud.SetHumanHealthPerCent(_gameController.GetHumanPerCent());
    }
    
    //--Show & Hide
