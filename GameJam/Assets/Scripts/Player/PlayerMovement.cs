@@ -70,7 +70,9 @@ public class PlayerMovement : MonoBehaviour {
         CameraFollow();
     }
     private void Update() {
-        if (Input.GetMouseButtonDown(0)) waitingGameStart = false;
+        if (Input.GetMouseButtonDown(0)){
+            waitingGameStart = false;
+        }
     }
     //-Body update
     private void UpdateBodyElements() {
