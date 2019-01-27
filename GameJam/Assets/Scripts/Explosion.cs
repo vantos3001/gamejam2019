@@ -24,7 +24,7 @@ public class Explosion : MonoBehaviour
         if (isExplode) {
             if (time < 0) isExplode = false;
             
-            float lerp = Mathf.Lerp(0f, 1f, ((time / explodeTime) * (time )));
+            float lerp = Mathf.Lerp(0f, 1f, time / explodeTime);
             changeAlfaChannel(lerp);
             time -= Time.deltaTime;
         }
