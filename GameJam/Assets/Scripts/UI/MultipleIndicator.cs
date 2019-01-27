@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WormIndicator : MonoBehaviour {
+public class MultipleIndicator : MonoBehaviour {
 
     public Image TargetImage;
     

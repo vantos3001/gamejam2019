@@ -104,6 +104,10 @@ public class GameController : MonoBehaviour {
         return healthPerCent;
     }
 
+    public float GetHumanHealth() {
+        return _human.GetTotalPoints();
+    }
+
     public Human.Damage GetHumanState() {
         return _human.GetTotalDamage();
     }

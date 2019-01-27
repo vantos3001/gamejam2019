@@ -7,17 +7,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour {
-    private const string ScorePrefix = "Score: ";
     private const string HumanHealthPrefix = "Human health: ";
 
-    private Color FlashStartColor; 
-    
     public GameObject HumanHealth;
 
     public Slider ScoreBar;
-    private Image FillImage;
-    private Image FlashImage;
-    private WormIndicator WormIndicator;
+    private MultipleIndicator _wormIndicator;
+
+    public Slider HumanHealthBar;
+    private MultipleIndicator _faceIndicator;
     
     private float _minFlashValue = 0.9f;
 
@@ -27,22 +25,17 @@ public class HUD : MonoBehaviour {
     private void Start() {
         var scoreBarImages = ScoreBar.GetComponentsInChildren<Image>();
         foreach (var image in scoreBarImages) {
-            if (image.name == "Fill") {
-                FillImage = image;
-            }
-
-            if (image.name == "Flash") {
-                FlashImage = image;
-                FlashImage.gameObject.SetActive(false);
-            }
-            
             if (image.name == "Worm Indicator") {
-                WormIndicator = image.GetComponent<WormIndicator>();
+                _wormIndicator = image.GetComponent<MultipleIndicator>();
             }
         }
 
-        var flashColor = FlashImage.color;
-        FlashStartColor = new Color(flashColor.r, flashColor.g, flashColor.b, 0);
+        var humanHealthImages = HumanHealthBar.GetComponentsInChildren<Image>();
+        foreach (var image in humanHealthImages) {
+            if (image.name == "Face Indicator") {
+                _faceIndicator = image.GetComponent<MultipleIndicator>();
+            }
+        }
     }
 
     public void SetHumanHealthPerCent(int healthPerCent) {
@@ -54,7 +47,7 @@ public class HUD : MonoBehaviour {
         CurrentScore = score;
 
         ScoreBar.value = CalculateScore();
-        WormIndicator.CheckCurrentImage(ScoreBar.value);
+        _wormIndicator.CheckCurrentImage(ScoreBar.value);
 //        FillImage.color = Color.Lerp(Color.red, Color.green, ScoreBar.value);
 
 //        if (ScoreBar.value < _minFlashValue) {
@@ -72,5 +65,10 @@ public class HUD : MonoBehaviour {
 
     private float CalculateScore() {
         return CurrentScore / MaxScore;
+    }
+    
+    public void SetHumanHealth(float health) {
+        HumanHealthBar.value = health;
+        _faceIndicator.CheckCurrentImage(HumanHealthBar.value);
     }
 }
