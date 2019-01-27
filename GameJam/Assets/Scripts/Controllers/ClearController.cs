@@ -23,7 +23,8 @@ public class ClearController : MonoBehaviour {
     
     //-Runtime
     public float CurrentPoits = 0.0f;
-    
+    public float BoneDamagePenalty = 200.0f;
+
     private bool _eatTickInfo_CanEat = true;
     private float _eatTickInfo_AteMeatCirclePercent = 0.0f;
     
@@ -75,6 +76,9 @@ public class ClearController : MonoBehaviour {
         Vector2 EatPosition = new Vector2(transform.position.x, transform.position.y);
         EatableWorld theEatableWorld = Object.FindObjectOfType<EatableWorld>();
         theEatableWorld.EatInCircle(EatPosition, BoneBlastRadius);
+
+        CurrentPoits -= BoneDamagePenalty;
+        CurrentPoits = Mathf.Clamp(CurrentPoits, 0.0f, 1000000.0f);
 
         // _playerMovement.SetStunTime(BoneBlashStunTime);
         //_playerMovement.PushAway(BoneBlashPushAwayDistance);

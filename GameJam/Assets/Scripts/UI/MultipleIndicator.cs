@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +26,7 @@ public class MultipleIndicator : MonoBehaviour {
     }
 
     private int CalculateIndex(float value) {
-        var index = (int)((SpriteCount - 1) * value);
+        var index = (int)Math.Round(((SpriteCount - 1) * value), MidpointRounding.AwayFromZero);
         return index;
     }
     

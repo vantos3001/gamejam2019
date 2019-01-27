@@ -7,7 +7,9 @@ public class Explosion : MonoBehaviour
 {
     [SerializeField]
     private float explodeTime = 1f;
-    private float time;
+    private float time = 0.0f;
+    public float ExplistionStartAlpha = 0.8f;
+
     public Image image;
     private bool isExplode = false;
     void Start()
@@ -18,30 +20,21 @@ public class Explosion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) {
-            explode();
-        }
-        if (isExplode) {
-            if (time < 0) isExplode = false;
+        if (!isExplode) return;
+        if (time < 0.0f) isExplode = false;
             
-            float lerp = Mathf.Lerp(0f, 1f, ((time / explodeTime) * (time )));
-            changeAlfaChannel(lerp);
-            time -= Time.deltaTime;
-        }
+        float theAlpha = Mathf.Lerp(0.0f, ExplistionStartAlpha, time / explodeTime);
+        changeAlfaChannel(theAlpha);
+        time -= Time.deltaTime;
     }
 
     public void explode() {
-        
-        changeAlfaChannel(1f);
         time = explodeTime;
         isExplode = true;
-        Debug.Log("exo!!");
     }
 
     private void changeAlfaChannel(float alfa) {
         Color color = image.color;
-        Debug.Log(color.a);
-        
         color.a = alfa;
         image.color = color;
     }

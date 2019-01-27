@@ -30,7 +30,9 @@ public class PlayerMovement : MonoBehaviour {
     public float FirstBodyElementScale = 1.0f;
     public float LastBodyElemntScale = 0.2f;
     public int BodyElementsCount = 0;
-    
+    public bool waitingGameStart = true;
+    public float angleWaitingSpeed = 10f;
+
     //-Runtime
     private float baseRotation = 0f;
     
@@ -55,7 +57,7 @@ public class PlayerMovement : MonoBehaviour {
             _stunTime = 0.0f;
             
             MoveForward();
-            RotatePlayer();
+            if(!waitingGameStart)RotatePlayer();
 
             UpdateBodyElements();
             UpdateBodyElementPositions();
@@ -63,11 +65,13 @@ public class PlayerMovement : MonoBehaviour {
             
             SetRotation(baseRotation + shakeAmplitude);
         }
-
+        if (waitingGameStart) Rotate(angleWaitingSpeed, 0.5f);
         UpdateEvateTime();
         CameraFollow();
     }
-
+    private void Update() {
+        if (Input.GetMouseButtonDown(0)) waitingGameStart = false;
+    }
     //-Body update
     private void UpdateBodyElements() {
         
@@ -159,6 +163,10 @@ public class PlayerMovement : MonoBehaviour {
         if (needToRotate) {
             dx = -dx;
             dy = -dy;
+        }
+        if (waitingGameStart) {
+            dx = 0;
+            dy = 0;
         }
         return (float)(Mathf.Rad2Deg * Math.Atan2(dy, dx));
     }
