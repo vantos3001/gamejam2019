@@ -2897,7 +2897,8 @@ PrefabInstance:
       propertyPath: StomachEatableObject
       value: 
       objectReference: {fileID: 1745264538}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9181729748736366768, guid: e84778ea466075e419c2cc0704e26c79, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e84778ea466075e419c2cc0704e26c79, type: 3}
 --- !u!1 &430261109
 GameObject:
@@ -8269,6 +8270,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 194.59998
       objectReference: {fileID: 0}
+    - target: {fileID: 7950628423064654015, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950628423064654015, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1433851968494176520, guid: a1fb60eee68156e4c92d01596d9ef228,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -8277,14 +8288,15 @@ PrefabInstance:
     - target: {fileID: 1433851968494176520, guid: a1fb60eee68156e4c92d01596d9ef228,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1433851968494176520, guid: a1fb60eee68156e4c92d01596d9ef228,
         type: 3}
       propertyPath: m_margin.w
       value: 0.00000026049437
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9206856117474500920, guid: a1fb60eee68156e4c92d01596d9ef228, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a1fb60eee68156e4c92d01596d9ef228, type: 3}
 --- !u!1 &1268722296
 GameObject:
