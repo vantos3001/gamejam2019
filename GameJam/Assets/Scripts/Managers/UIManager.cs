@@ -34,7 +34,12 @@ public class UIManager : MonoBehaviour {
    public void ShowHUD() { HUDGameObject.gameObject.SetActive(true); }
    public void HideHUD() { HUDGameObject.gameObject.SetActive(false); }
    
-   public void ShowWinPanel() { WinPanel.SetActive(true); }
+   public void ShowWinPanel() {
+        CutScenesController Controller = Object.FindObjectOfType<CutScenesController>();
+        Controller.PlayVideoForCamera("file:///D:/data/video_2.mp4");
+
+        HideHUD();
+   }
    public void HideWinPanel() { WinPanel.SetActive(false); }
    
    public void ShowLosePanel() { LosePanel.SetActive(true); }

@@ -4,19 +4,7 @@ using UnityEngine;
 
 public class CutScenesController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        PlayVideo();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void PlayVideo() {
+    public void PlayVideoForCamera(string CutsceneURL) {
         // Will attach a VideoPlayer to the main camera.
         GameObject camera = gameObject;
 
@@ -24,7 +12,6 @@ public class CutScenesController : MonoBehaviour
         // to a camera object, no need to change videoPlayer.targetCamera.
         var videoPlayer = camera.AddComponent<UnityEngine.Video.VideoPlayer>();
 
-        Camera theCameraComponent = gameObject.GetComponent<Camera>();
         videoPlayer.aspectRatio = UnityEngine.Video.VideoAspectRatio.FitInside;
 
         // Play on awake defaults to true. Set it to false to avoid the url set
@@ -40,7 +27,7 @@ public class CutScenesController : MonoBehaviour
 
         // Set the video to play. URL supports local absolute or relative paths.
         // Here, using absolute.
-        videoPlayer.url = "file:///D:/data/video_2.mp4";
+        videoPlayer.url = CutsceneURL;
 
         // Skip the first 100 frames.
         videoPlayer.frame = 0;
