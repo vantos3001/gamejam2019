@@ -39,7 +39,37 @@ public class Human : MonoBehaviour
     //-State accessors
     public bool IsDead(){ return (Damage.Death == GetTotalDamage()); }
 
-    public Damage GetTotalDamage() { return GetMeatDamage(); }
+    public Damage GetTotalDamage() {
+        if(Damage.Death == GetMeatDamage()) return Damage.Death;
+
+        PartSettings thePartState;
+
+        thePartState = GetHeartState();
+        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
+            return Damage.Death;
+
+        thePartState = GetKidney1State();
+        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
+            return Damage.Death;
+
+        thePartState = GetKidney2State();
+        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
+            return Damage.Death;
+
+        thePartState = GetLiverState();
+        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
+            return Damage.Death;
+
+        thePartState = GetLungsState();
+        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
+            return Damage.Death;
+
+        thePartState = GetStomachState();
+        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
+            return Damage.Death;
+ 
+        return Damage.Medium;
+    }
     
     public Damage GetMeatDamage() {
         float LeftToEatPercent = MeatEatablePart.PartEatableObject.GetLeftToEatPercent();

@@ -148,30 +148,20 @@ public class HUD : MonoBehaviour {
     }
     
     Color GetOrganDamageColor(Human.PartSettings PartState) {
-        float LeftPercent = PartState.PartEatableObject.GetLeftToEatPercent();
+        float AtePercent = PartState.PartEatableObject.GetAtePercent();
 
-        float ActualDamage = (LeftPercent - PartState.CriticalAtePercent) / (1 - PartState.CriticalAtePercent);
-        ActualDamage = Mathf.Clamp(ActualDamage, 0.0f, 1.0f);
+        float UIShownDamage = AtePercent / PartState.CriticalAtePercent;
+        UIShownDamage = Mathf.Clamp(UIShownDamage, 0.0f, 1.0f);
+        UIShownDamage = 1.0f - UIShownDamage;
 
-        return GetDamageColorByDamagePercent(ActualDamage);
+        return GetDamageColorByDamagePercent(UIShownDamage);
     }
 
     Color GetDamageColorByDamagePercent(float LeftPercent) {
-        if (LeftPercent > 0.9f) {
-            var value = Mathf.Lerp(0.9f, 1f, LeftPercent * 10 - 9);
-            return Color.Lerp(YellowOrganColor, GreenOrganColor, LeftPercent * 2 - 1);
-        } else if (LeftPercent > 0.7f) {
-            var value = Mathf.Lerp(0.7f, 0.9f, LeftPercent * 5 - 3.5f);
-            return Color.Lerp(OrangeOrganColor, YellowOrganColor, LeftPercent * 2 - 1);
-        } else if (LeftPercent > 0.6f) {
-            var value = Mathf.Lerp(0.6f, 0.7f, LeftPercent * 10 - 6);
-            return Color.Lerp(RedOrganColor, OrangeOrganColor, LeftPercent * 2 - 1);
-        } else if (LeftPercent > 0.5f) {
-            var value = Mathf.Lerp(0.5f, 0.6f, LeftPercent * 10 - 5);
-            return Color.Lerp(GreyOrganColor, RedOrganColor, LeftPercent * 2 - 1);
-        } else {
-            var value = Mathf.Lerp(0f, 0.5f, LeftPercent * 2);
-            return Color.Lerp(GreyOrganColor, GreyOrganColor, LeftPercent * 2 - 1);
-        }
+        if (LeftPercent > 0.9f) return GreenOrganColor;
+        if (LeftPercent > 0.7f) return YellowOrganColor;
+        if (LeftPercent > 0.3f) return OrangeOrganColor;
+        if (LeftPercent > 0.0f) return RedOrganColor;
+        return GreenOrganColor;
     }
 }
