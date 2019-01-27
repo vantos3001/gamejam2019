@@ -9,13 +9,17 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour {
     private const string ScorePrefix = "Score: ";
     private const string HumanHealthPrefix = "Human health: ";
-    
-    public GameObject Score;
+
+    private Color FlashStartColor; 
     
     public GameObject HumanHealth;
 
     public Slider ScoreBar;
     private Image FillImage;
+    private Image FlashImage;
+    private WormIndicator WormIndicator;
+    
+    private float _minFlashValue = 0.9f;
 
     public float MaxScore;
     private float CurrentScore = 0;
@@ -26,12 +30,19 @@ public class HUD : MonoBehaviour {
             if (image.name == "Fill") {
                 FillImage = image;
             }
-        }
-    }
 
-    public void SetScoreText(int score) {
-        var scoreText = Score.GetComponentInChildren<TextMeshProUGUI>();
-        scoreText.text = ScorePrefix + score;
+            if (image.name == "Flash") {
+                FlashImage = image;
+                FlashImage.gameObject.SetActive(false);
+            }
+            
+            if (image.name == "Worm Indicator") {
+                WormIndicator = image.GetComponent<WormIndicator>();
+            }
+        }
+
+        var flashColor = FlashImage.color;
+        FlashStartColor = new Color(flashColor.r, flashColor.g, flashColor.b, 0);
     }
 
     public void SetHumanHealthPerCent(int healthPerCent) {
@@ -43,7 +54,20 @@ public class HUD : MonoBehaviour {
         CurrentScore = score;
 
         ScoreBar.value = CalculateScore();
-        FillImage.color = Color.Lerp(Color.red, Color.green, ScoreBar.value);
+        WormIndicator.CheckCurrentImage(ScoreBar.value);
+//        FillImage.color = Color.Lerp(Color.red, Color.green, ScoreBar.value);
+
+//        if (ScoreBar.value < _minFlashValue) {
+//            FlashImage.gameObject.SetActive(false);
+//            FlashImage.color = FlashStartColor;
+//        } else {
+//            FlashImage.gameObject.SetActive(true);
+//            if (FlashImage.color == FlashStartColor) {
+//                FlashImage.color = new Color(FlashStartColor.r,FlashStartColor.g,FlashStartColor.b, 0.5f);
+//            } else {
+//                FlashImage.color = FlashStartColor;
+//            }
+//        }
     }
 
     private float CalculateScore() {

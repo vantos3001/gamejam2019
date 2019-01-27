@@ -300,6 +300,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2033018229036448383, guid: 1f357483c69a61f428e2c733f0bc01a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033018229036448383, guid: 1f357483c69a61f428e2c733f0bc01a6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033018229036448383, guid: 1f357483c69a61f428e2c733f0bc01a6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2033018229036448383, guid: 1f357483c69a61f428e2c733f0bc01a6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f357483c69a61f428e2c733f0bc01a6, type: 3}
 --- !u!224 &604785923722927902 stripped

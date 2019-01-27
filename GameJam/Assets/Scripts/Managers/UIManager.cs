@@ -24,7 +24,6 @@ public class UIManager : MonoBehaviour {
    }
 
    private void Update() {
-      _hud.SetScoreText(_gameController.GetCurrentScore());
       _hud.SetCurrentScore(_gameController.GetCurrentScore());
       
       _hud.SetHumanHealthPerCent(_gameController.GetHumanPerCent());
