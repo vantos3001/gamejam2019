@@ -242,6 +242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 31399761}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &50680337
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +338,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 50680339}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &54726659
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,6 +513,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 57129555}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &60487954
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +688,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 78682004}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &84659270
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +863,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 111179526}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &124443598
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,6 +959,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 124443600}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &125537738
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +1055,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 125537740}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &133442550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,6 +1185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 161847464}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &170308775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1346,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 197181045}
   ObjectType: 0
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8301887, g: 0.43452954, b: 0.105731584, a: 0.5}
 --- !u!4 &197181047
 Transform:
   m_ObjectHideFlags: 0
@@ -1448,6 +1466,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 198361409}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &203046490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1542,6 +1562,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 203046492}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &251069562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1636,6 +1658,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 251069564}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &262414616
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,6 +1786,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 270588593}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &271421803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,6 +1882,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 271421805}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 0.5}
 --- !u!1 &274016353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2004,6 +2032,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 283868474}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 0.8160377, b: 0.8160377, a: 0.5}
 --- !u!1 &292177473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,6 +2128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 292177475}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &321321236
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,6 +2258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 341672470}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9339623, g: 0.7797704, b: 0.7797704, a: 0.5}
 --- !u!1 &354698819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2272,6 +2306,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 354698822}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!212 &354698822
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2414,6 +2450,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 364244388}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9339623, g: 0.81501424, b: 0.81501424, a: 0.5}
 --- !u!1 &387666477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2508,6 +2546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 387666479}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &411223733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2602,6 +2642,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 411223735}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1001 &420322633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2677,13 +2719,43 @@ PrefabInstance:
     - target: {fileID: 9181729748736366773, guid: e84778ea466075e419c2cc0704e26c79,
         type: 3}
       propertyPath: WinScore
-      value: 20000
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
         type: 3}
       propertyPath: MeatEatableObject
       value: 
       objectReference: {fileID: 639361319}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: HeartEatableObject
+      value: 
+      objectReference: {fileID: 1020786576}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: Kidney1EatableObject
+      value: 
+      objectReference: {fileID: 197181046}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: Kidney2EatableObject
+      value: 
+      objectReference: {fileID: 2051164505}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: LiverEatableObject
+      value: 
+      objectReference: {fileID: 1653074356}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: LungsEatableObject
+      value: 
+      objectReference: {fileID: 1472278791}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: StomachEatableObject
+      value: 
+      objectReference: {fileID: 1745264538}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e84778ea466075e419c2cc0704e26c79, type: 3}
 --- !u!1 &430261109
@@ -2780,6 +2852,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 430261111}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &435042299
 GameObject:
   m_ObjectHideFlags: 0
@@ -2874,6 +2948,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 435042301}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &453171210
 GameObject:
   m_ObjectHideFlags: 0
@@ -3047,6 +3123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 453449880}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &454787376
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,6 +3219,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 454787378}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &466663095
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,6 +3315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 466663097}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &471924369
 GameObject:
   m_ObjectHideFlags: 0
@@ -3329,6 +3411,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 471924371}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &492294727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3423,6 +3507,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 492294729}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &538516036
 GameObject:
   m_ObjectHideFlags: 0
@@ -3517,6 +3603,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 538516038}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9339623, g: 0.81501424, b: 0.81501424, a: 0.5}
 --- !u!1 &569940530
 GameObject:
   m_ObjectHideFlags: 0
@@ -3611,6 +3699,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 569940532}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &571220416
 GameObject:
   m_ObjectHideFlags: 0
@@ -3705,6 +3795,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 571220418}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0.78431374}
 --- !u!1 &593730218
 GameObject:
   m_ObjectHideFlags: 0
@@ -3799,6 +3891,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 593730220}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &620339799
 GameObject:
   m_ObjectHideFlags: 0
@@ -3893,6 +3987,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 620339801}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &639361317
 GameObject:
   m_ObjectHideFlags: 0
@@ -3973,6 +4069,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 639361318}
   ObjectType: 0
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!4 &639361320
 Transform:
   m_ObjectHideFlags: 0
@@ -4160,6 +4258,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 681966555}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &699635113
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,6 +4387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 722407475}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &731966149
 GameObject:
   m_ObjectHideFlags: 0
@@ -4460,6 +4562,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 742717835}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &756365579
 GameObject:
   m_ObjectHideFlags: 0
@@ -4554,6 +4658,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 756365581}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &766584099
 GameObject:
   m_ObjectHideFlags: 0
@@ -4648,6 +4754,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 766584101}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &774842869
 GameObject:
   m_ObjectHideFlags: 0
@@ -4742,6 +4850,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 774842871}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &793037854
 GameObject:
   m_ObjectHideFlags: 0
@@ -4836,6 +4946,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 793037856}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &813226618
 GameObject:
   m_ObjectHideFlags: 0
@@ -4930,6 +5042,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 813226620}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &814270087
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,6 +5217,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 837464565}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &838085638
 GameObject:
   m_ObjectHideFlags: 0
@@ -5355,6 +5471,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 854666405}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &854836253
 GameObject:
   m_ObjectHideFlags: 0
@@ -5449,6 +5567,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 854836255}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 0.5}
 --- !u!1 &875405574
 GameObject:
   m_ObjectHideFlags: 0
@@ -5543,6 +5663,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 875405576}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &907527994
 GameObject:
   m_ObjectHideFlags: 0
@@ -5716,6 +5838,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 931866645}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 0.5}
 --- !u!1 &933816439
 GameObject:
   m_ObjectHideFlags: 0
@@ -5810,6 +5934,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 933816441}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &964127897
 GameObject:
   m_ObjectHideFlags: 0
@@ -5904,6 +6030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 964127899}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0.78431374}
 --- !u!1 &965717065
 GameObject:
   m_ObjectHideFlags: 0
@@ -5998,6 +6126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 965717067}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9433962, g: 0.81434673, b: 0.81434673, a: 0.5}
 --- !u!1 &970011231
 GameObject:
   m_ObjectHideFlags: 0
@@ -6206,6 +6336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 979684261}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &991962795
 GameObject:
   m_ObjectHideFlags: 0
@@ -6300,6 +6432,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 991962797}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &1005829600
 GameObject:
   m_ObjectHideFlags: 0
@@ -6429,6 +6563,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1013407085}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1014269664
 GameObject:
   m_ObjectHideFlags: 0
@@ -6577,6 +6713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1020008146}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &1020786574
 GameObject:
   m_ObjectHideFlags: 0
@@ -6657,6 +6795,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1020786575}
   ObjectType: 0
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!4 &1020786577
 Transform:
   m_ObjectHideFlags: 0
@@ -6774,6 +6914,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1022215967}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1027480248
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,6 +7010,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1027480250}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1035135950
 GameObject:
   m_ObjectHideFlags: 0
@@ -6962,6 +7106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1035135952}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &1054958736
 GameObject:
   m_ObjectHideFlags: 0
@@ -7135,6 +7281,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1066351451}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9433962, g: 0.81434673, b: 0.81434673, a: 0.5}
 --- !u!1 &1075731009
 GameObject:
   m_ObjectHideFlags: 0
@@ -7263,6 +7411,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1080526573}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1082781884
 GameObject:
   m_ObjectHideFlags: 0
@@ -7357,6 +7507,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1082781886}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 0.8160377, b: 0.8160377, a: 0.5}
 --- !u!1 &1115867624
 GameObject:
   m_ObjectHideFlags: 0
@@ -7451,6 +7603,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1115867626}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1144252078
 GameObject:
   m_ObjectHideFlags: 0
@@ -7545,6 +7699,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1144252080}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &1189180338
 GameObject:
   m_ObjectHideFlags: 0
@@ -7639,6 +7795,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1189180340}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0.78431374}
 --- !u!1 &1191833886
 GameObject:
   m_ObjectHideFlags: 0
@@ -7845,6 +8003,86 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6482917479177931107, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461327803157046508, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461327803157046508, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1461327803157046508, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715159275924303539, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715159275924303539, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715159275924303539, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715159275924303539, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861742506150023465, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861742506150023465, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861742506150023465, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4861742506150023465, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051980974488324370, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051980974488324370, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 336866651546039075, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 336866651546039075, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1fb60eee68156e4c92d01596d9ef228, type: 3}
 --- !u!1 &1268722296
@@ -7941,6 +8179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1268722298}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &1269982756
 GameObject:
   m_ObjectHideFlags: 0
@@ -8114,6 +8354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1274052731}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1286565716
 GameObject:
   m_ObjectHideFlags: 0
@@ -8208,6 +8450,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1286565718}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &1293952135
 GameObject:
   m_ObjectHideFlags: 0
@@ -8302,6 +8546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1293952137}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1306104853
 GameObject:
   m_ObjectHideFlags: 0
@@ -8475,6 +8721,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1307023760}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &1310723874
 GameObject:
   m_ObjectHideFlags: 0
@@ -8650,6 +8898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1318445409}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1343830266
 GameObject:
   m_ObjectHideFlags: 0
@@ -8744,6 +8994,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1343830268}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1351170969
 GameObject:
   m_ObjectHideFlags: 0
@@ -8917,6 +9169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1405290791}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &1405894846
 GameObject:
   m_ObjectHideFlags: 0
@@ -9090,6 +9344,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1430796933}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &1457888289
 GameObject:
   m_ObjectHideFlags: 0
@@ -9184,6 +9440,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1457888291}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 0.5}
 --- !u!1 &1472278789
 GameObject:
   m_ObjectHideFlags: 0
@@ -9264,6 +9522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1472278790}
   ObjectType: 0
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 0.5}
 --- !u!4 &1472278792
 Transform:
   m_ObjectHideFlags: 0
@@ -9372,6 +9632,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1481922052}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &1484250056
 GameObject:
   m_ObjectHideFlags: 0
@@ -9580,6 +9842,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1498018167}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &1525071797
 GameObject:
   m_ObjectHideFlags: 0
@@ -9674,6 +9938,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1525071799}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &1525472794
 GameObject:
   m_ObjectHideFlags: 0
@@ -9961,6 +10227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1566226080}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &1567122642
 GameObject:
   m_ObjectHideFlags: 0
@@ -10099,6 +10367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1629568389}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 0.8160377, b: 0.8160377, a: 0.5}
 --- !u!1 &1653074354
 GameObject:
   m_ObjectHideFlags: 0
@@ -10179,6 +10449,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1653074355}
   ObjectType: 0
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.18102321, g: 0.7075472, b: 0.01668743, a: 0.5}
 --- !u!4 &1653074357
 Transform:
   m_ObjectHideFlags: 0
@@ -10287,6 +10559,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1676824367}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0.78431374}
 --- !u!1 &1687622763
 GameObject:
   m_ObjectHideFlags: 0
@@ -10730,6 +11004,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1714686314}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &1730479744
 GameObject:
   m_ObjectHideFlags: 0
@@ -10824,6 +11100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1730479746}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &1742677489
 GameObject:
   m_ObjectHideFlags: 0
@@ -10918,6 +11196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1742677491}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1745264536
 GameObject:
   m_ObjectHideFlags: 0
@@ -10998,6 +11278,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1745264537}
   ObjectType: 0
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!4 &1745264539
 Transform:
   m_ObjectHideFlags: 0
@@ -11091,6 +11373,71 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1791375416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1791375418}
+  - component: {fileID: 1791375417}
+  m_Layer: 0
+  m_Name: Video Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!328 &1791375417
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791375416}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 78ad9674b0871494882f1f19d661dc97, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 1979374346}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 1
+  m_AspectRatio: 3
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 0
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+--- !u!4 &1791375418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791375416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.2359219, y: 6.06698, z: 0.24213795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1802962739
 GameObject:
   m_ObjectHideFlags: 0
@@ -11264,6 +11611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1815871166}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9339623, g: 0.81501424, b: 0.81501424, a: 0.5}
 --- !u!1 &1840125677
 GameObject:
   m_ObjectHideFlags: 0
@@ -11358,6 +11707,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1840125679}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &1847044028
 GameObject:
   m_ObjectHideFlags: 0
@@ -11486,6 +11837,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1850964139}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &1871379236
 GameObject:
   m_ObjectHideFlags: 0
@@ -11659,6 +12012,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1877910304}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 0.8160377, b: 0.8160377, a: 0.5}
 --- !u!1 &1880937948
 GameObject:
   m_ObjectHideFlags: 0
@@ -11753,6 +12108,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1880937950}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1898264489
 GameObject:
   m_ObjectHideFlags: 0
@@ -11847,6 +12204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1898264491}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1900538862
 GameObject:
   m_ObjectHideFlags: 0
@@ -11941,6 +12300,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1900538864}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &1913178397
 GameObject:
   m_ObjectHideFlags: 0
@@ -12035,6 +12396,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1913178399}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 1, g: 1, b: 1, a: 0.78431374}
 --- !u!1 &1928378792
 GameObject:
   m_ObjectHideFlags: 0
@@ -12129,6 +12492,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1928378794}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &1952439408
 GameObject:
   m_ObjectHideFlags: 0
@@ -12219,6 +12584,7 @@ GameObject:
   - component: {fileID: 1979374347}
   - component: {fileID: 1979374346}
   - component: {fileID: 1979374345}
+  - component: {fileID: 1979374348}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -12290,6 +12656,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1979374348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979374344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bfb1d2db718f04ca466e5ff0cf1ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1985438054
 GameObject:
   m_ObjectHideFlags: 0
@@ -12384,6 +12762,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 1985438056}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9433962, g: 0.81434673, b: 0.81434673, a: 0.5}
 --- !u!1 &2003181606
 GameObject:
   m_ObjectHideFlags: 0
@@ -12478,6 +12858,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 2003181608}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &2015160999
 GameObject:
   m_ObjectHideFlags: 0
@@ -12572,6 +12954,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 2015161001}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &2017930536
 GameObject:
   m_ObjectHideFlags: 0
@@ -12666,6 +13050,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 2017930538}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9433962, g: 0.81434673, b: 0.81434673, a: 0.5}
 --- !u!1 &2023953645
 GameObject:
   m_ObjectHideFlags: 0
@@ -12825,6 +13211,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 2051164504}
   ObjectType: 0
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.6415094, g: 0.44099718, b: 0.16642934, a: 0.5}
 --- !u!4 &2051164506
 Transform:
   m_ObjectHideFlags: 0
@@ -12933,6 +13321,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 2081873535}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}
 --- !u!1 &2093107315
 GameObject:
   m_ObjectHideFlags: 0
@@ -13027,6 +13417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 2093107317}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &2096744574
 GameObject:
   m_ObjectHideFlags: 0
@@ -13235,6 +13627,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 2112944726}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9150943, g: 0.8417141, b: 0.8417141, a: 0.78431374}
 --- !u!1 &2117560211
 GameObject:
   m_ObjectHideFlags: 0
@@ -13408,6 +13802,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 2119458731}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!1 &2121325414
 GameObject:
   m_ObjectHideFlags: 0
@@ -13502,6 +13898,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 2121325416}
   ObjectType: 3
+  EatingBoardInUnits: 0.3
+  EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
 --- !u!114 &2135808743 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1549955446694981247, guid: a1fb60eee68156e4c92d01596d9ef228,
@@ -13608,6 +14006,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 2137482270}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0.78431374}
 --- !u!1 &2144022270
 GameObject:
   m_ObjectHideFlags: 0
@@ -13702,3 +14102,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Visual: {fileID: 2144022272}
   ObjectType: 3
+  EatingBoardInUnits: 0.03
+  EatingBoardColor: {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 0.78431374}

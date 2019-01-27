@@ -734,6 +734,11 @@ PrefabInstance:
       propertyPath: MeatEatableObject
       value: 
       objectReference: {fileID: 1852680681}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: MaxMeatLeftToEatPercent
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e84778ea466075e419c2cc0704e26c79, type: 3}
 --- !u!1 &1978364453

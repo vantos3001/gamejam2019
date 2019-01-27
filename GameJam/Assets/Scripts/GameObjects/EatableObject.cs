@@ -18,6 +18,9 @@ public class EatableObject : MonoBehaviour
     public SpriteRenderer Visual = null;
     public EEatableObjectType ObjectType = EEatableObjectType.Meat;
 
+    public float EatingBoardInUnits = 0.03f;
+    public Color EatingBoardColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+
     //--Cached at start
     private int _startingPixelsCount = 0;
     private int _leftPixelsCount = 0;
@@ -64,7 +67,9 @@ public class EatableObject : MonoBehaviour
     //-Eatable World API
     public void EatInCircle(Vector2 WorldPosition, float WorldRadius) {
         int Radius = (int)ConvertValueInUnitsToValueInPixels(WorldRadius);
-        
+
+        int EatingBoardInPixels = (int)ConvertValueInUnitsToValueInPixels(EatingBoardInUnits);
+
         Vector2 PixelPosition = ConvertWorldPositionToPixelPosition(WorldPosition);
         int CenterX = (int)PixelPosition.x;
         int CenterY = (int)PixelPosition.y;
@@ -81,31 +86,31 @@ public class EatableObject : MonoBehaviour
                 int DeltaX = theX - CenterX;
                 
                 int PixelDistanceToCenter = (int)Mathf.Sqrt(DeltaX * DeltaX + DeltaY * DeltaY);
-                if (PixelDistanceToCenter > Radius) continue;
-                
+                if (PixelDistanceToCenter > Radius) continue;                
 
                 Color theLogicPixelColor = _logicTexture.GetPixel(theX, theY);
-                if (0.0f == theLogicPixelColor.r) continue;
-
-                _logicTexture.SetPixel(theX, theY, new Color(0.0f, 0.0f, 0.0f, 0.0f));
+                if (0.0f != theLogicPixelColor.r) {
+                    _logicTexture.SetPixel(theX, theY, new Color(0.0f, 0.0f, 0.0f, 0.0f));
+                    --_leftPixelsCount;
+                }
 
                 Color theVisualPixelColor = _visualTexture.GetPixel(theX, theY);
+                Color theVisualPixelColorNewColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
 
-                
-                int aRadius = (int)(0.75 * Radius);
-                if (PixelDistanceToCenter <= Radius && PixelDistanceToCenter >= aRadius) {
-                    theVisualPixelColor.a = (0 != theVisualPixelColor.a) ? 0.5f : 0.0f;
-                } else {
-                    theVisualPixelColor.a = 0.0f;
+                float theColorLerpTNotClamped = ((float)Radius - (float)PixelDistanceToCenter) / (float)EatingBoardInPixels;
+                float theColorLerpT = Mathf.Clamp(theColorLerpTNotClamped, 0.0f, 1.0f);
+                if (theColorLerpTNotClamped <= 1.0f) {
+                    Color theLerpedVisualPixelColorNewColor =
+                            Color.Lerp(theVisualPixelColor, EatingBoardColor, theColorLerpT);
+
+                    if (theVisualPixelColor.a != 0.0f)
+                    {
+                        theVisualPixelColorNewColor = theLerpedVisualPixelColorNewColor;
+                    }
                 }
-                
-                
+                theVisualPixelColor = theVisualPixelColorNewColor;
 
-                
-                
-                _visualTexture.SetPixel(theX, theY,  theVisualPixelColor);
-
-                --_leftPixelsCount;
+                _visualTexture.SetPixel(theX, theY, theVisualPixelColor);
             }
         }
         
