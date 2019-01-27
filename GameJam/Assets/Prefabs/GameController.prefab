@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _UIManager: {fileID: 0}
+  WinScore: 2000
+  Human: {fileID: 4056652522434734473}
 --- !u!114 &9181729748736366775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,4 +86,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxMeatLeftToEatPercent: 0.2
-  MeatEatableObject: {fileID: 0}
+  MeatEatablePart:
+    PartEatableObject: {fileID: 0}
+    CriticalAtePercent: 0
+    IsImportant: 0
+  HeartEatablePart:
+    PartEatableObject: {fileID: 0}
+    CriticalAtePercent: 0
+    IsImportant: 0
+  Kidney1EatablePart:
+    PartEatableObject: {fileID: 0}
+    CriticalAtePercent: 0
+    IsImportant: 0
+  Kidney2EatablePart:
+    PartEatableObject: {fileID: 0}
+    CriticalAtePercent: 0
+    IsImportant: 0
+  LiverEatablePart:
+    PartEatableObject: {fileID: 0}
+    CriticalAtePercent: 0
+    IsImportant: 0
+  LungsEatablePart:
+    PartEatableObject: {fileID: 0}
+    CriticalAtePercent: 0
+    IsImportant: 0
+  StomachEatablePart:
+    PartEatableObject: {fileID: 0}
+    CriticalAtePercent: 0
+    IsImportant: 0

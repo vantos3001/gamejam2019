@@ -65,12 +65,14 @@ public class PlayerMovement : MonoBehaviour {
             
             SetRotation(baseRotation + shakeAmplitude);
         }
-        if (waitingGameStart) Rotate(angleWaitingSpeed, 0.5f);
+        if (waitingGameStart) Rotate(angleWaitingSpeed, 0.3f);
         UpdateEvateTime();
         CameraFollow();
     }
     private void Update() {
-        if (Input.GetMouseButtonDown(0)) waitingGameStart = false;
+        if (Input.GetMouseButtonDown(0)){
+            waitingGameStart = false;
+        }
     }
     //-Body update
     private void UpdateBodyElements() {

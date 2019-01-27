@@ -1692,147 +1692,6 @@ Transform:
   m_Father: {fileID: 274016354}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &267903650
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 267903653}
-  - component: {fileID: 267903652}
-  - component: {fileID: 267903651}
-  m_Layer: 0
-  m_Name: MediaController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &267903651
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267903650}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fff213a0ae46d34458b9ecbbbbb662b4, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &267903652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267903650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2863be2c033fc344187a6fed06b11d12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource: {fileID: 267903651}
---- !u!4 &267903653
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267903650}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.542166, y: 1.9422575, z: -0.023183256}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &270588591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2862,6 +2721,11 @@ PrefabInstance:
       propertyPath: WinScore
       value: 4000
       objectReference: {fileID: 0}
+    - target: {fileID: 9181729748736366773, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: Human
+      value: 
+      objectReference: {fileID: 1160853154}
     - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
         type: 3}
       propertyPath: MeatEatableObject
@@ -2897,7 +2761,113 @@ PrefabInstance:
       propertyPath: StomachEatableObject
       value: 
       objectReference: {fileID: 1745264538}
-    m_RemovedComponents: []
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: MeatEatablePart.PartEatableObject
+      value: 
+      objectReference: {fileID: 639361319}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: HeartEatablePart.PartEatableObject
+      value: 
+      objectReference: {fileID: 1020786576}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: Kidney1EatablePart.PartEatableObject
+      value: 
+      objectReference: {fileID: 197181046}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: Kidney2EatablePart.PartEatableObject
+      value: 
+      objectReference: {fileID: 2051164505}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: LiverEatablePart.PartEatableObject
+      value: 
+      objectReference: {fileID: 1653074356}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: LungsEatablePart.PartEatableObject
+      value: 
+      objectReference: {fileID: 1472278791}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: StomachEatablePart.PartEatableObject
+      value: 
+      objectReference: {fileID: 1745264538}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: HeartEatablePart.IsImportant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: LungsEatablePart.IsImportant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: HeartEatablePart.CriticalAtePercent
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: LungsEatablePart.CriticalAtePercent
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: LiverEatablePart.CriticalAtePercent
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: Kidney2EatablePart.CriticalAtePercent
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: Kidney1EatablePart.CriticalAtePercent
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: MeatEatablePart.CriticalAtePercent
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: StomachEatablePart.CriticalAtePercent
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: MeatEatablePart.IsImportant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: LiverEatablePart.IsImportant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: StomachEatablePart.IsImportant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: Kidney1EatablePart.IsImportant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+        type: 3}
+      propertyPath: Kidney2EatablePart.IsImportant
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9181729748736366768, guid: e84778ea466075e419c2cc0704e26c79, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e84778ea466075e419c2cc0704e26c79, type: 3}
 --- !u!1 &430261109
 GameObject:
@@ -6610,6 +6580,75 @@ Transform:
   m_Father: {fileID: 274016354}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -263.655}
+--- !u!1001 &1007279174
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2463659327197192946, guid: f32fc125f6599cd4087b2985b9409d0a,
+        type: 3}
+      propertyPath: m_Name
+      value: MediaController
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463659327197192949, guid: f32fc125f6599cd4087b2985b9409d0a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 16.542166
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463659327197192949, guid: f32fc125f6599cd4087b2985b9409d0a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9422575
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463659327197192949, guid: f32fc125f6599cd4087b2985b9409d0a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.023183256
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463659327197192949, guid: f32fc125f6599cd4087b2985b9409d0a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463659327197192949, guid: f32fc125f6599cd4087b2985b9409d0a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463659327197192949, guid: f32fc125f6599cd4087b2985b9409d0a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463659327197192949, guid: f32fc125f6599cd4087b2985b9409d0a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463659327197192949, guid: f32fc125f6599cd4087b2985b9409d0a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463659327197192949, guid: f32fc125f6599cd4087b2985b9409d0a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463659327197192949, guid: f32fc125f6599cd4087b2985b9409d0a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2463659327197192949, guid: f32fc125f6599cd4087b2985b9409d0a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f32fc125f6599cd4087b2985b9409d0a, type: 3}
 --- !u!1 &1013407083
 GameObject:
   m_ObjectHideFlags: 0
@@ -7842,6 +7881,18 @@ MonoBehaviour:
   ObjectType: 3
   EatingBoardInUnits: 0.3
   EatingBoardColor: {r: 1, g: 0, b: 0, a: 0.5}
+--- !u!114 &1160853154 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4056652522434734473, guid: e84778ea466075e419c2cc0704e26c79,
+    type: 3}
+  m_PrefabInstance: {fileID: 420322633}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f4999c23637a7d44909827075bd8bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1189180338
 GameObject:
   m_ObjectHideFlags: 0
@@ -8149,6 +8200,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7436712432420585464, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -285.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436712432420585464, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -213.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4945925812300666031, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 683.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1461327803157046508, guid: a1fb60eee68156e4c92d01596d9ef228,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -8269,6 +8335,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 194.59998
       objectReference: {fileID: 0}
+    - target: {fileID: 7950628423064654015, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7950628423064654015, guid: a1fb60eee68156e4c92d01596d9ef228,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1433851968494176520, guid: a1fb60eee68156e4c92d01596d9ef228,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -8277,14 +8353,15 @@ PrefabInstance:
     - target: {fileID: 1433851968494176520, guid: a1fb60eee68156e4c92d01596d9ef228,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1433851968494176520, guid: a1fb60eee68156e4c92d01596d9ef228,
         type: 3}
       propertyPath: m_margin.w
       value: 0.00000026049437
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9206856117474500920, guid: a1fb60eee68156e4c92d01596d9ef228, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a1fb60eee68156e4c92d01596d9ef228, type: 3}
 --- !u!1 &1268722296
 GameObject:
@@ -10311,11 +10388,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1818240906, guid: bb782bc6af0944946bcd9e76043d10c5, type: 3}
       propertyPath: PenaltyIfNoEatAtTick
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1818240906, guid: bb782bc6af0944946bcd9e76043d10c5, type: 3}
       propertyPath: PointsPerFullMeatCircle
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818240906, guid: bb782bc6af0944946bcd9e76043d10c5, type: 3}
+      propertyPath: BoneDamagePenalty
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5158204264636783172, guid: bb782bc6af0944946bcd9e76043d10c5,
         type: 3}

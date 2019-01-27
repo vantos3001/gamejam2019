@@ -61,6 +61,12 @@ public class GameController : MonoBehaviour {
                 break;
             case GameState.Lose:
                 _UIManager.ShowLosePanel();
+                var mediaController = FindObjectOfType<MediaController>();
+                mediaController.mainTheme.Stop();
+                mediaController.chewing.Stop();
+                var gameOverSound = mediaController.gameOver;
+                if(!gameOverSound.isPlaying) gameOverSound.PlayOneShot(gameOverSound.clip);
+                StartCoroutine(RealoadGame());
                 break;
             case GameState.InProgress:
                 _UIManager.ShowHUD();
@@ -73,6 +79,12 @@ public class GameController : MonoBehaviour {
                 Debug.LogError("Do not use " + _gameState + " state");
                 break;
         }
+    }
+    
+    IEnumerator RealoadGame()
+    {
+        yield return new WaitForSeconds(3);
+        SwapSceneController.RestartGame();
     }
     
 

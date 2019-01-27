@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Human : MonoBehaviour
 {
+    [System.Serializable]
+    public struct PartSettings {
+        public EatableObject PartEatableObject;
+        public float CriticalAtePercent;
+        public bool IsImportant;
+    }
+
     public enum Damage
     {
         None,
@@ -19,23 +26,53 @@ public class Human : MonoBehaviour
     public float MaxMeatLeftToEatPercent = 0.2f;
     
     //-Human parts setting
-    public EatableObject MeatEatableObject = null;
+    public PartSettings MeatEatablePart;
 
-    public EatableObject HeartEatableObject = null;
-    public EatableObject Kidney1EatableObject = null;
-    public EatableObject Kidney2EatableObject = null;
-    public EatableObject LiverEatableObject = null;
-    public EatableObject LungsEatableObject = null;
-    public EatableObject StomachEatableObject = null;
-    
+    public PartSettings HeartEatablePart;
+    public PartSettings Kidney1EatablePart;
+    public PartSettings Kidney2EatablePart;
+    public PartSettings LiverEatablePart;
+    public PartSettings LungsEatablePart;
+    public PartSettings StomachEatablePart;
+
     //Methods
     //-State accessors
     public bool IsDead(){ return (Damage.Death == GetTotalDamage()); }
 
-    public Damage GetTotalDamage() { return GetMeatDamage(); }
+    public Damage GetTotalDamage() {
+        if(Damage.Death == GetMeatDamage()) return Damage.Death;
+
+        PartSettings thePartState;
+
+        thePartState = GetHeartState();
+        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
+            return Damage.Death;
+
+        thePartState = GetKidney1State();
+        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
+            return Damage.Death;
+
+        thePartState = GetKidney2State();
+        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
+            return Damage.Death;
+
+        thePartState = GetLiverState();
+        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
+            return Damage.Death;
+
+        thePartState = GetLungsState();
+        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
+            return Damage.Death;
+
+        thePartState = GetStomachState();
+        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
+            return Damage.Death;
+ 
+        return Damage.Medium;
+    }
     
     public Damage GetMeatDamage() {
-        float LeftToEatPercent = MeatEatableObject.GetLeftToEatPercent();
+        float LeftToEatPercent = MeatEatablePart.PartEatableObject.GetLeftToEatPercent();
         if (LeftToEatPercent > 0.9f) return Damage.None;
         if (LeftToEatPercent > 0.7f) return Damage.Low;
         if (LeftToEatPercent > 0.5f) return Damage.Medium;
@@ -45,14 +82,14 @@ public class Human : MonoBehaviour
     }
 
     public float GetTotalPoints() {
-        float LeftToEatPercent = MeatEatableObject.GetLeftToEatPercent();
+        float LeftToEatPercent = MeatEatablePart.PartEatableObject.GetLeftToEatPercent();
         return LeftToEatPercent;
     }
 
-    EatableObject GetHeartEatableObject() { return HeartEatableObject; }
-    EatableObject GetKidney1EatableObject() { return Kidney1EatableObject; }
-    EatableObject GetKidney2EatableObject() { return Kidney2EatableObject; }
-    EatableObject GetLiverEatableObject() { return LiverEatableObject; }
-    EatableObject GetLungsEatableObject() { return LungsEatableObject; }
-    EatableObject GetStomachEatableObject() { return StomachEatableObject; }
+    public PartSettings GetHeartState() { return HeartEatablePart; }
+    public PartSettings GetKidney1State() { return Kidney1EatablePart; }
+    public PartSettings GetKidney2State() { return Kidney2EatablePart; }
+    public PartSettings GetLiverState() { return LiverEatablePart; }
+    public PartSettings GetLungsState() { return LungsEatablePart; }
+    public PartSettings GetStomachState() { return StomachEatablePart; }
 }

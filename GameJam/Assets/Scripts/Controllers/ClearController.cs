@@ -16,7 +16,7 @@ public class ClearController : MonoBehaviour {
     public float PenaltyIfNoEatAtTick = 0.01f;
 
     private bool isEvate = false;
-    private float evationTime = 1f;
+    public float evationTime = 0.5f;
     
     //--Runtime-cache
     private PlayerMovement _playerMovement = null;
@@ -40,7 +40,7 @@ public class ClearController : MonoBehaviour {
     void Update() {
         Update_ResetEatTickStatistic();        
         Update_PerformEat();
-        Update_ProcessEatTickStatistic();
+        if(!_playerMovement.waitingGameStart) {Update_ProcessEatTickStatistic();}
     }
 
     //Eating info lifecycle
@@ -55,7 +55,11 @@ public class ClearController : MonoBehaviour {
         EatableWorld theEatableWorld = Object.FindObjectOfType<EatableWorld>();
         EatableWorld.EatableObjectWithPercent[] theEatableObjectsEatingDatas =
                 theEatableWorld.GetObjectsPercentInCircle(EatPosition, EatingRadius);
-
+        if (!FindObjectOfType<MediaController>().chewing.isPlaying){
+            FindObjectOfType<MediaController>().chewing.UnPause();
+        } else{
+            FindObjectOfType<MediaController>().chewing.Pause();
+        }
         foreach (EatableWorld.EatableObjectWithPercent theEatableObjectsEatingData in theEatableObjectsEatingDatas) {
             switch (theEatableObjectsEatingData.EatableObject.ObjectType){
                 case EatableObject.EEatableObjectType.Meat:
