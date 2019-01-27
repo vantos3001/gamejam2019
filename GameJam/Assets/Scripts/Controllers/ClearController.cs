@@ -40,7 +40,7 @@ public class ClearController : MonoBehaviour {
     void Update() {
         Update_ResetEatTickStatistic();        
         Update_PerformEat();
-        Update_ProcessEatTickStatistic();
+        if(!_playerMovement.waitingGameStart) {Update_ProcessEatTickStatistic();}
     }
 
     //Eating info lifecycle
