@@ -82,14 +82,27 @@ public class EatableObject : MonoBehaviour
                 
                 int PixelDistanceToCenter = (int)Mathf.Sqrt(DeltaX * DeltaX + DeltaY * DeltaY);
                 if (PixelDistanceToCenter > Radius) continue;
+                
 
                 Color theLogicPixelColor = _logicTexture.GetPixel(theX, theY);
                 if (0.0f == theLogicPixelColor.r) continue;
-                
+
                 _logicTexture.SetPixel(theX, theY, new Color(0.0f, 0.0f, 0.0f, 0.0f));
-                
+
                 Color theVisualPixelColor = _visualTexture.GetPixel(theX, theY);
-                theVisualPixelColor.a = 0.0f;
+
+                
+                int aRadius = (int)(0.75 * Radius);
+                if (PixelDistanceToCenter <= Radius && PixelDistanceToCenter >= aRadius) {
+                    theVisualPixelColor.a = (0 != theVisualPixelColor.a) ? 0.5f : 0.0f;
+                } else {
+                    theVisualPixelColor.a = 0.0f;
+                }
+                
+                
+
+                
+                
                 _visualTexture.SetPixel(theX, theY,  theVisualPixelColor);
 
                 --_leftPixelsCount;
