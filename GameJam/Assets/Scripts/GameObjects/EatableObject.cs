@@ -94,10 +94,12 @@ public class EatableObject : MonoBehaviour
                     --_leftPixelsCount;
                 }
 
+                /*
                 Color theVisualPixelColor = _visualTexture.GetPixel(theX, theY);
 
                 //0 is for color, 1 is for eat color
-                float theColorLerpTNotClamped = ((float)Radius - (float)PixelDistanceToCenter) / (float)EatingBoardInPixels;
+                float theColorLerpTNotClamped =
+                        ((float)Radius - (float)PixelDistanceToCenter) / (float)EatingBoardInPixels;
                 float theColorLerpT = Mathf.Clamp(theColorLerpTNotClamped, 0.0f, 1.0f);
 
                 Color theNewColor;
@@ -106,9 +108,11 @@ public class EatableObject : MonoBehaviour
                 } else {
                     theNewColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
                 }
-                theVisualPixelColor = theNewColor;
-
-                _visualTexture.SetPixel(theX, theY, theVisualPixelColor);
+                
+                if (theVisualPixelColor.a > theNewColor.a) {}
+                theVisualPixelColor = theVisualPixelColor.a > theNewColor.a;
+                */
+                _visualTexture.SetPixel(theX, theY, new Color(0.0f, 0.0f, 0.0f, 0.0f));
             }
         }
         
