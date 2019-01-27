@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ActualyLastTestLevelScene.unity
     guid: f2f1865fa09962d4a8b2c348c71b98d7
   - enabled: 1
+    path: Assets/Scenes/Video Player.unity
+    guid: 66df2db1a0bb17141b8d93ce77f7b679
+  - enabled: 1
     path: Assets/Scenes/Preloader.unity
     guid: e2bd403dc0891394fa81ecec01febf4e
   - enabled: 1

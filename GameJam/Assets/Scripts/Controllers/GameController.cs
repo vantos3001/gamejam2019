@@ -111,4 +111,7 @@ public class GameController : MonoBehaviour {
     public Human.Damage GetHumanState() {
         return Human.GetTotalDamage();
     }
+
+    private void StopGame(){
+    }
 }

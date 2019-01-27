@@ -49,12 +49,7 @@ public class UIManager : MonoBehaviour {
    public void HideHUD() { HUDGameObject.gameObject.SetActive(false); }
    
    public void ShowWinPanel() {
-        VideoPlayer Player = Object.FindObjectOfType<VideoPlayer>();
-        if (Player) {
-           Player.Play();
-        } else {
-           Debug.Log("NO PLAYER!");
-        }
+        SwapSceneController.WatchVideo();
 
         HideHUD();
    }
