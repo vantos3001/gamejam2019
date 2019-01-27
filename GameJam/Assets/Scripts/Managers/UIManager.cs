@@ -40,8 +40,6 @@ public class UIManager : MonoBehaviour {
       var Kidneys2 = _gameController.Human.Kidney2EatableObject.GetLeftToEatPercent();
       var averageidneys = (Kidneys1 + Kidneys2) / 2;
       _hud.SetKidneysColor(averageidneys);
-      
-      _hud.SetHumanHealthPerCent(_gameController.GetHumanPerCent());
    }
    
    //--Show & Hide

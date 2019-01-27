@@ -91,11 +91,6 @@ public class HUD : MonoBehaviour {
         OrangeOrganColor = FillOrangeColor;
     }
 
-    public void SetHumanHealthPerCent(int healthPerCent) {
-        var healthText = HumanHealth.GetComponentInChildren<TextMeshProUGUI>();
-        healthText.text = HumanHealthPrefix + healthPerCent + "%";
-    }
-
     public void SetCurrentScore(int score) {
         CurrentScore = score;
 
