@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class UIManager : MonoBehaviour {
    public Canvas BaseCanvas;
@@ -48,8 +49,12 @@ public class UIManager : MonoBehaviour {
    public void HideHUD() { HUDGameObject.gameObject.SetActive(false); }
    
    public void ShowWinPanel() {
-        CutScenesController Controller = Object.FindObjectOfType<CutScenesController>();
-        Controller.PlayVideoForCamera("file:///D:/data/video_2.mp4");
+        VideoPlayer Player = Object.FindObjectOfType<VideoPlayer>();
+        if (Player) {
+           Player.Play();
+        } else {
+           Debug.Log("NO PLAYER!");
+        }
 
         HideHUD();
    }
