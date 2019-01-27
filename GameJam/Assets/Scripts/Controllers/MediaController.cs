@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class MediaController : MonoBehaviour
 {
-    public AudioSource AudioSource;
+    public AudioSource mainTheme;
+    public AudioSource chewing;
+    public AudioSource gameOver;
 
     private void Start(){
-        AudioSource.Play();
+        mainTheme.Play();
     }
+    
+    
 }

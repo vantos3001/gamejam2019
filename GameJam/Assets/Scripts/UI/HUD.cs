@@ -161,7 +161,7 @@ public class HUD : MonoBehaviour {
         if (LeftPercent > 0.9f) return GreenOrganColor;
         if (LeftPercent > 0.7f) return YellowOrganColor;
         if (LeftPercent > 0.3f) return OrangeOrganColor;
-        if (LeftPercent > 0.0f) return RedOrganColor;
+        if (LeftPercent > 0.0f) return FillRedColor;
         return GreenOrganColor;
     }
 }

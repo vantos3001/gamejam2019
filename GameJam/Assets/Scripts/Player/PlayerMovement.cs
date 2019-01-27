@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour {
             
             SetRotation(baseRotation + shakeAmplitude);
         }
-        if (waitingGameStart) Rotate(angleWaitingSpeed, 0.5f);
+        if (waitingGameStart) Rotate(angleWaitingSpeed, 0.3f);
         UpdateEvateTime();
         CameraFollow();
     }
