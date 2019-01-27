@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 
     //Fields
     //-Settings
+    [Header("Settings")]
     public float Speed = 3f;
     public float RotationSensitivity = 5f;
 
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour {
     public float maxShakeAmplitude = 20;
 
     //--Body
+    [Header("Body")]
     public GameObject BodyPrefab = null;
     public GameObject TailPrefab = null;
     public float FirstBodyElementScale = 1.0f;
@@ -41,6 +43,8 @@ public class PlayerMovement : MonoBehaviour {
 
     //--Stunning
     private float _stunTime = 0.0f;
+    private bool needToRotate = false;
+    private float evateTime;
     
     //Methods
     private void FixedUpdate() {
@@ -60,6 +64,7 @@ public class PlayerMovement : MonoBehaviour {
             SetRotation(baseRotation + shakeAmplitude);
         }
 
+        UpdateEvateTime();
         CameraFollow();
     }
 
@@ -151,7 +156,10 @@ public class PlayerMovement : MonoBehaviour {
 
         float dx = mouseCoords.x - transform.position.x;
         float dy = mouseCoords.y - transform.position.y;
-
+        if (needToRotate) {
+            dx = -dx;
+            dy = -dy;
+        }
         return (float)(Mathf.Rad2Deg * Math.Atan2(dy, dx));
     }
 
@@ -194,6 +202,21 @@ public class PlayerMovement : MonoBehaviour {
         foreach (GameObject theBodyElement in _bodyElements){
             theBodyElement.transform.position = transform.position;
             theBodyElement.GetComponent<WormBodyElement>().SetNextPosition(transform.position);
+        }
+    }
+
+    public void Rotate(float angle, float time) {
+        needToRotate = true;
+        evateTime = time;
+        baseRotation += angle;
+    }
+
+    private void UpdateEvateTime() {
+        if(evateTime > 0) {
+            evateTime -= Time.deltaTime;
+        } else {
+
+            needToRotate = false;
         }
     }
 }
