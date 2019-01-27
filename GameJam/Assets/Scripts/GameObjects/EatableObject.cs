@@ -18,8 +18,8 @@ public class EatableObject : MonoBehaviour
     public SpriteRenderer Visual = null;
     public EEatableObjectType ObjectType = EEatableObjectType.Meat;
 
-    public float EatingBoardInUnits = 0.3f;
-    public Color EatingBoardColor = new Color(1.0f, 0.0f, 0.0f, 0.5f);
+    public float EatingBoardInUnits = 0.03f;
+    public Color EatingBoardColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
 
     //--Cached at start
     private int _startingPixelsCount = 0;
@@ -95,18 +95,20 @@ public class EatableObject : MonoBehaviour
                 }
 
                 Color theVisualPixelColor = _visualTexture.GetPixel(theX, theY);
+                Color theVisualPixelColorNewColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
 
-                //0 is for color, 1 is for eat color
                 float theColorLerpTNotClamped = ((float)Radius - (float)PixelDistanceToCenter) / (float)EatingBoardInPixels;
                 float theColorLerpT = Mathf.Clamp(theColorLerpTNotClamped, 0.0f, 1.0f);
+                if (theColorLerpTNotClamped <= 1.0f) {
+                    Color theLerpedVisualPixelColorNewColor =
+                            Color.Lerp(theVisualPixelColor, EatingBoardColor, theColorLerpT);
 
-                Color theNewColor;
-                if (theColorLerpTNotClamped < 1.0f) {
-                    theNewColor = Color.Lerp(theVisualPixelColor, EatingBoardColor, theColorLerpT);
-                } else {
-                    theNewColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
+                    if (theVisualPixelColor.a != 0.0f)
+                    {
+                        theVisualPixelColorNewColor = theLerpedVisualPixelColorNewColor;
+                    }
                 }
-                theVisualPixelColor = theNewColor;
+                theVisualPixelColor = theVisualPixelColorNewColor;
 
                 _visualTexture.SetPixel(theX, theY, theVisualPixelColor);
             }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class UIManager : MonoBehaviour {
    public Canvas BaseCanvas;
@@ -27,6 +28,19 @@ public class UIManager : MonoBehaviour {
       _hud.SetCurrentScore(_gameController.GetCurrentScore());
       _hud.SetHumanHealth(_gameController.GetHumanHealth());
       
+      //organs
+      _hud.SetHeartColor(_gameController.Human.HeartEatableObject.GetLeftToEatPercent());
+      _hud.SetLiverColor(_gameController.Human.LiverEatableObject.GetLeftToEatPercent());
+      _hud.SetLungsColor(_gameController.Human.LungsEatableObject.GetLeftToEatPercent());
+      _hud.SetStomachColor(_gameController.Human.StomachEatableObject.GetLeftToEatPercent());
+      
+      
+      // TODO: for 2 kidneys
+      var Kidneys1 = _gameController.Human.Kidney1EatableObject.GetLeftToEatPercent();
+      var Kidneys2 = _gameController.Human.Kidney2EatableObject.GetLeftToEatPercent();
+      var averageidneys = (Kidneys1 + Kidneys2) / 2;
+      _hud.SetKidneysColor(averageidneys);
+      
       _hud.SetHumanHealthPerCent(_gameController.GetHumanPerCent());
    }
    
@@ -35,8 +49,7 @@ public class UIManager : MonoBehaviour {
    public void HideHUD() { HUDGameObject.gameObject.SetActive(false); }
    
    public void ShowWinPanel() {
-        CutScenesController Controller = Object.FindObjectOfType<CutScenesController>();
-        Controller.PlayVideoForCamera("file:///D:/data/video_2.mp4");
+        SwapSceneController.WatchVideo();
 
         HideHUD();
    }

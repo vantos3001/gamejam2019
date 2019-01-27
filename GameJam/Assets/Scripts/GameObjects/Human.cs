@@ -21,6 +21,13 @@ public class Human : MonoBehaviour
     //-Human parts setting
     public EatableObject MeatEatableObject = null;
 
+    public EatableObject HeartEatableObject = null;
+    public EatableObject Kidney1EatableObject = null;
+    public EatableObject Kidney2EatableObject = null;
+    public EatableObject LiverEatableObject = null;
+    public EatableObject LungsEatableObject = null;
+    public EatableObject StomachEatableObject = null;
+    
     //Methods
     //-State accessors
     public bool IsDead(){ return (Damage.Death == GetTotalDamage()); }
@@ -41,4 +48,11 @@ public class Human : MonoBehaviour
         float LeftToEatPercent = MeatEatableObject.GetLeftToEatPercent();
         return LeftToEatPercent;
     }
+
+    EatableObject GetHeartEatableObject() { return HeartEatableObject; }
+    EatableObject GetKidney1EatableObject() { return Kidney1EatableObject; }
+    EatableObject GetKidney2EatableObject() { return Kidney2EatableObject; }
+    EatableObject GetLiverEatableObject() { return LiverEatableObject; }
+    EatableObject GetLungsEatableObject() { return LungsEatableObject; }
+    EatableObject GetStomachEatableObject() { return StomachEatableObject; }
 }
