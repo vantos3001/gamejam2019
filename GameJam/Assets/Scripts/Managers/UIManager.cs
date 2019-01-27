@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour {
    public Canvas BaseCanvas;
@@ -10,22 +9,25 @@ public class UIManager : MonoBehaviour {
    public GameObject WinPanel;
    public GameObject LosePanel;
    public GameObject NextScenePanel;
+   public GameObject ReadyToWinPanel;
 
    private static UIManager _instance;
 
-   private ClearController _playerClearController = null;
-   private Human _human = null;
+   private GameController _gameController;
+   private HUD _hud;
    
    private void Start() {
+      _gameController = FindObjectOfType<GameController>();
+      
       _hud = HUDGameObject.GetComponent<HUD>();
-
-      _playerClearController = Object.FindObjectOfType<ClearController>();
-      _human = Object.FindObjectOfType<Human>();
+      _hud.MaxScore = _gameController.WinScore;
    }
 
    private void Update() {
-      _hud.SetScoreText((int)_playerClearController.GetCurrentPoints());
-      _hud.SetHumanHealth(_human.GetTotalPoints());
+      _hud.SetCurrentScore(_gameController.GetCurrentScore());
+      _hud.SetHumanHealth(_gameController.GetHumanHealth());
+      
+      _hud.SetHumanHealthPerCent(_gameController.GetHumanPerCent());
    }
    
    //--Show & Hide
@@ -40,14 +42,16 @@ public class UIManager : MonoBehaviour {
 
    public void ShowNextScenePanel() { NextScenePanel.SetActive(true); }
    public void HideNextScenePanel() { NextScenePanel.SetActive(false); }
+   
+   public void ShowReadyToWinPanel(){ReadyToWinPanel.SetActive(true);}
+   public void HideReadyToWinPanel(){ReadyToWinPanel.SetActive(false);}
 
    public void HideAllPanels() {
       HideHUD();
       HideWinPanel();
       HideLosePanel();
       HideNextScenePanel();
+      HideReadyToWinPanel();
    }
 
-   private HUD _hud;
-   public void SetHumanHealth(int health) { _hud.SetHumanHealth(health); }
 }
