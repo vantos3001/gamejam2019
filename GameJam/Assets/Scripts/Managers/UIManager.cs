@@ -17,12 +17,16 @@ public class UIManager : MonoBehaviour {
    private HUD _hud;
    
    private void Start() {
-      _hud = HUDGameObject.GetComponent<HUD>();
       _gameController = FindObjectOfType<GameController>();
+      
+      _hud = HUDGameObject.GetComponent<HUD>();
+      _hud.MaxScore = _gameController.WinScore;
    }
 
    private void Update() {
-      _hud.SetScoreText(_gameController.GetCurrentScore());
+      _hud.SetCurrentScore(_gameController.GetCurrentScore());
+      _hud.SetHumanHealth(_gameController.GetHumanHealth());
+      
       _hud.SetHumanHealthPerCent(_gameController.GetHumanPerCent());
    }
    

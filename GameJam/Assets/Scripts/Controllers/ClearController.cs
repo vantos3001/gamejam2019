@@ -14,6 +14,9 @@ public class ClearController : MonoBehaviour {
     
     public float PointsPerFullMeatCircle = 10.0f;
     public float PenaltyIfNoEatAtTick = 0.01f;
+
+    private bool isEvate = false;
+    private float evationTime = 1f;
     
     //--Runtime-cache
     private PlayerMovement _playerMovement = null;
@@ -60,7 +63,7 @@ public class ClearController : MonoBehaviour {
                 
                 case EatableObject.EEatableObjectType.Bone:
                     _eatTickInfo_AteMeatCirclePercent = 0.0f;
-                    ProcessBoneBlast();
+                    if(!isEvate) ProcessBoneBlast();
                     return;
             }
         }
@@ -72,9 +75,12 @@ public class ClearController : MonoBehaviour {
         Vector2 EatPosition = new Vector2(transform.position.x, transform.position.y);
         EatableWorld theEatableWorld = Object.FindObjectOfType<EatableWorld>();
         theEatableWorld.EatInCircle(EatPosition, BoneBlastRadius);
-        
-        _playerMovement.SetStunTime(BoneBlashStunTime);
-        _playerMovement.PushAway(BoneBlashPushAwayDistance);
+
+        // _playerMovement.SetStunTime(BoneBlashStunTime);
+        //_playerMovement.PushAway(BoneBlashPushAwayDistance);
+        //isEvate = true;
+        _playerMovement.Rotate(180, evationTime);
+        FindObjectOfType<Explosion>().explode();
     }
     
     private void Update_ProcessEatTickStatistic() {

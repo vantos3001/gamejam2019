@@ -76,7 +76,7 @@ public class TextureSetupScript : MonoBehaviour {
         int Diametr = 2 * Radius;
         int aRadius = Radius;
         Radius = (int)(0.8 * aRadius);
-        //Debug.Log(Radius + " : " + aRadius);
+        Debug.Log(Radius + " : " + aRadius);
 
         for (int y = 0; y < Diametr; ++y) {
             int DeltaY = aRadius - y;
