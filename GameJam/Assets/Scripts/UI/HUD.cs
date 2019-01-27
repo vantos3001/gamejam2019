@@ -127,12 +127,18 @@ public class HUD : MonoBehaviour {
         HumanHealthFillImage.color = GetDamageColor(HumanHealthBar.value);
     }
 
-    public void SetHeartColor(float healthOrgan) { Heart.color = GetOrganDamageColor(healthOrgan); }
-    public void SetStomachColor(float healthOrgan) { Stomach.color = GetOrganDamageColor(healthOrgan); }
-    public void SetKidneysColor(float healthOrgan) { Kidneys.color = GetOrganDamageColor(healthOrgan); }
-    public void SetLiverColor(float healthOrgan) { Liver.color = GetOrganDamageColor(healthOrgan); }
-    public void SetLungsColor(float healthOrgan) { Lungs.color = GetOrganDamageColor(healthOrgan); }
-    
+    public void SetHeartColor(Human.PartSettings PartState) { Heart.color = GetOrganDamageColor(PartState); }
+    public void SetStomachColor(Human.PartSettings PartState) { Stomach.color = GetOrganDamageColor(PartState); }
+    public void SetLiverColor(Human.PartSettings PartState) { Liver.color = GetOrganDamageColor(PartState); }
+    public void SetLungsColor(Human.PartSettings PartState) { Lungs.color = GetOrganDamageColor(PartState); }
+
+    public void SetKidneysColor(Human.PartSettings PartState1, Human.PartSettings PartState2) {
+        float averageidneys = (PartState1.PartEatableObject.GetLeftToEatPercent() +
+                PartState1.PartEatableObject.GetLeftToEatPercent()) / 2.0f;
+
+        Kidneys.color = GetDamageColorByDamagePercent(averageidneys);
+    }
+
     Color GetDamageColor(float LeftPercent) {
         Color color;
         if (LeftPercent > 0.5) {
@@ -146,29 +152,31 @@ public class HUD : MonoBehaviour {
         return color;
     }
     
-    Color GetOrganDamageColor(float LeftPercent) {
-        Color color;
+    Color GetOrganDamageColor(Human.PartSettings PartState) {
+        float LeftPercent = PartState.PartEatableObject.GetLeftToEatPercent();
+
+        float ActualDamage = (LeftPercent - PartState.CriticalAtePercent) / (1 - PartState.CriticalAtePercent);
+        ActualDamage = Mathf.Clamp(ActualDamage, 0.0f, 1.0f);
+
+        return GetDamageColorByDamagePercent(ActualDamage);
+    }
+
+    Color GetDamageColorByDamagePercent(float LeftPercent) {
         if (LeftPercent > 0.9f) {
             var value = Mathf.Lerp(0.9f, 1f, LeftPercent * 10 - 9);
-            color = Color.Lerp(YellowOrganColor, GreenOrganColor, LeftPercent * 2 - 1);
-            
+            return Color.Lerp(YellowOrganColor, GreenOrganColor, LeftPercent * 2 - 1);
         } else if (LeftPercent > 0.7f) {
             var value = Mathf.Lerp(0.7f, 0.9f, LeftPercent * 5 - 3.5f);
-            color = Color.Lerp(OrangeOrganColor, YellowOrganColor, LeftPercent * 2 - 1);
-            
-        }else if (LeftPercent > 0.6f) {
+            return Color.Lerp(OrangeOrganColor, YellowOrganColor, LeftPercent * 2 - 1);
+        } else if (LeftPercent > 0.6f) {
             var value = Mathf.Lerp(0.6f, 0.7f, LeftPercent * 10 - 6);
-            color = Color.Lerp(RedOrganColor, OrangeOrganColor, LeftPercent * 2 - 1);
-            
-        }else if (LeftPercent > 0.5f) {
+            return Color.Lerp(RedOrganColor, OrangeOrganColor, LeftPercent * 2 - 1);
+        } else if (LeftPercent > 0.5f) {
             var value = Mathf.Lerp(0.5f, 0.6f, LeftPercent * 10 - 5);
-            color = Color.Lerp(GreyOrganColor, RedOrganColor, LeftPercent * 2 - 1);
-            
+            return Color.Lerp(GreyOrganColor, RedOrganColor, LeftPercent * 2 - 1);
         } else {
             var value = Mathf.Lerp(0f, 0.5f, LeftPercent * 2);
-            color = Color.Lerp(GreyOrganColor, GreyOrganColor, LeftPercent * 2 - 1);
+            return Color.Lerp(GreyOrganColor, GreyOrganColor, LeftPercent * 2 - 1);
         }
-
-        return color;
     }
 }

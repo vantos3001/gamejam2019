@@ -27,19 +27,15 @@ public class UIManager : MonoBehaviour {
    private void Update() {
       _hud.SetCurrentScore(_gameController.GetCurrentScore());
       _hud.SetHumanHealth(_gameController.GetHumanHealth());
-      
+
       //organs
-      _hud.SetHeartColor(_gameController.Human.HeartEatableObject.GetLeftToEatPercent());
-      _hud.SetLiverColor(_gameController.Human.LiverEatableObject.GetLeftToEatPercent());
-      _hud.SetLungsColor(_gameController.Human.LungsEatableObject.GetLeftToEatPercent());
-      _hud.SetStomachColor(_gameController.Human.StomachEatableObject.GetLeftToEatPercent());
-      
-      
-      // TODO: for 2 kidneys
-      var Kidneys1 = _gameController.Human.Kidney1EatableObject.GetLeftToEatPercent();
-      var Kidneys2 = _gameController.Human.Kidney2EatableObject.GetLeftToEatPercent();
-      var averageidneys = (Kidneys1 + Kidneys2) / 2;
-      _hud.SetKidneysColor(averageidneys);
+      Human theHuman = _gameController.Human;
+
+      _hud.SetHeartColor(theHuman.GetHeartState());
+      _hud.SetLiverColor(theHuman.GetLiverState());
+      _hud.SetLungsColor(theHuman.GetLungsState());
+      _hud.SetStomachColor(theHuman.GetStomachState());
+      _hud.SetKidneysColor(theHuman.GetKidney1State(), theHuman.GetKidney2State());
       
       _hud.SetHumanHealthPerCent(_gameController.GetHumanPerCent());
    }
@@ -71,5 +67,4 @@ public class UIManager : MonoBehaviour {
       HideNextScenePanel();
       HideReadyToWinPanel();
    }
-
 }
