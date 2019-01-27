@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour {
     public int WinScore = 2000;
     
     private ClearController _playerClearController = null;
-    private Human _human = null;
+    public Human Human = null;
 
     private GameState _gameState = GameState.None;
 
@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour {
 
     private void Start() {
         _playerClearController = FindObjectOfType<ClearController>();
-        _human = FindObjectOfType<Human>();
+        Human = FindObjectOfType<Human>();
         
         LoadLevel();
     }
@@ -100,20 +100,15 @@ public class GameController : MonoBehaviour {
     }
 
     public int GetHumanPerCent() {
-        var healthPerCent = (int)(_human.GetTotalPoints() * 100);
+        var healthPerCent = (int)(Human.GetTotalPoints() * 100);
         return healthPerCent;
     }
 
     public float GetHumanHealth() {
-        return _human.GetTotalPoints();
+        return Human.GetTotalPoints();
     }
 
     public Human.Damage GetHumanState() {
-        return _human.GetTotalDamage();
-    }
-
-    private void UpdateUIInfo() {
-        //_UIManager.SetScoreText(_currentScore);
-        //_UIManager.SetHumanHealth(_currentHumanHealth);
+        return Human.GetTotalDamage();
     }
 }
