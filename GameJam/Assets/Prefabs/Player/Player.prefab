@@ -60,6 +60,8 @@ MonoBehaviour:
   FirstBodyElementScale: 1
   LastBodyElemntScale: 0.2
   BodyElementsCount: 50
+  waitingGameStart: 1
+  angleWaitingSpeed: 10
 --- !u!114 &1818240906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73,12 +75,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EatingRadius: 0.2
-  BoneBlastRadius: 0.4
+  BoneBlastRadius: 0.3
   BoneBlashStunTime: 2
   BoneBlashPushAwayDistance: 2
   PointsPerFullMeatCircle: 10
   PenaltyIfNoEatAtTick: 0.1
   CurrentPoits: 0
+  BoneDamagePenalty: 200
 --- !u!1 &5158204265420075488
 GameObject:
   m_ObjectHideFlags: 0
