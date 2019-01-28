@@ -8203,7 +8203,7 @@ PrefabInstance:
     - target: {fileID: 7436712432420585464, guid: a1fb60eee68156e4c92d01596d9ef228,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -285.75
+      value: -286
       objectReference: {fileID: 0}
     - target: {fileID: 7436712432420585464, guid: a1fb60eee68156e4c92d01596d9ef228,
         type: 3}
@@ -10396,7 +10396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1818240906, guid: bb782bc6af0944946bcd9e76043d10c5, type: 3}
       propertyPath: BoneDamagePenalty
-      value: 0
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818240906, guid: bb782bc6af0944946bcd9e76043d10c5, type: 3}
+      propertyPath: evationTime
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5158204264636783172, guid: bb782bc6af0944946bcd9e76043d10c5,
         type: 3}
