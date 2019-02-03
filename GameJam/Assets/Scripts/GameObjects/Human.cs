@@ -21,13 +21,9 @@ public class Human : MonoBehaviour
         Death
     }
     
-    //Fields
-    //-Settings
-    public float MaxMeatLeftToEatPercent = 0.2f;
-    
+    //Fields    
     //-Human parts setting
     public PartSettings MeatEatablePart;
-
     public PartSettings HeartEatablePart;
     public PartSettings Kidney1EatablePart;
     public PartSettings Kidney2EatablePart;
@@ -35,57 +31,38 @@ public class Human : MonoBehaviour
     public PartSettings LungsEatablePart;
     public PartSettings StomachEatablePart;
 
+    PartSettings[] Parts;
+
     //Methods
+    private void Start()
+    {
+        //We use static array for performance. For more flexibility use List<PartSettings>
+        const int PartsLimitCount = 10;
+        Parts = new PartSettings[PartsLimitCount];
+
+        Parts[0] = MeatEatablePart;
+        Parts[1] = HeartEatablePart;
+        Parts[2] = Kidney1EatablePart;
+        Parts[3] = Kidney2EatablePart;
+        Parts[0] = LiverEatablePart;
+        Parts[5] = LungsEatablePart;
+        Parts[6] = StomachEatablePart;
+}
+
     //-State accessors
     public bool IsDead(){ return (Damage.Death == GetTotalDamage()); }
 
     public Damage GetTotalDamage() {
-        if(Damage.Death == GetMeatDamage()) return Damage.Death;
-
-        PartSettings thePartState;
-
-        thePartState = GetHeartState();
-        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
-            return Damage.Death;
-
-        thePartState = GetKidney1State();
-        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
-            return Damage.Death;
-
-        thePartState = GetKidney2State();
-        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
-            return Damage.Death;
-
-        thePartState = GetLiverState();
-        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
-            return Damage.Death;
-
-        thePartState = GetLungsState();
-        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
-            return Damage.Death;
-
-        thePartState = GetStomachState();
-        if (thePartState.IsImportant && thePartState.PartEatableObject.GetAtePercent() > thePartState.CriticalAtePercent)
-            return Damage.Death;
+        foreach(PartSettings Part in Parts) {
+            if (Part.IsImportant && Part.PartEatableObject.GetAtePercent() > Part.CriticalAtePercent) return Damage.Death;
+        }
  
         return Damage.Medium;
     }
     
-    public Damage GetMeatDamage() {
-        float LeftToEatPercent = MeatEatablePart.PartEatableObject.GetLeftToEatPercent();
-        if (LeftToEatPercent > 0.9f) return Damage.None;
-        if (LeftToEatPercent > 0.7f) return Damage.Low;
-        if (LeftToEatPercent > 0.5f) return Damage.Medium;
-        if (LeftToEatPercent > 0.4f) return Damage.Hight;
-        if (LeftToEatPercent > MaxMeatLeftToEatPercent) return Damage.Critical;
-        return Damage.Death;
-    }
+    public float GetTotalPoints() { return MeatEatablePart.PartEatableObject.GetLeftToEatPercent(); }
 
-    public float GetTotalPoints() {
-        float LeftToEatPercent = MeatEatablePart.PartEatableObject.GetLeftToEatPercent();
-        return LeftToEatPercent;
-    }
-
+    public PartSettings GetMeatState() { return MeatEatablePart; }
     public PartSettings GetHeartState() { return HeartEatablePart; }
     public PartSettings GetKidney1State() { return Kidney1EatablePart; }
     public PartSettings GetKidney2State() { return Kidney2EatablePart; }
