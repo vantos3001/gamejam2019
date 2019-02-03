@@ -32,6 +32,7 @@ public class EatableObject : MonoBehaviour
     //Methods
     //-Initialization
     void Start() {
+
         if (!Visual){
             Debug.Log("NO VISUAL RENDER FOR EATABLE OBJECT!");
             return;
@@ -58,6 +59,8 @@ public class EatableObject : MonoBehaviour
         
         _startingPixelsCount = theLogicPixelColors.Length;
         _leftPixelsCount = _startingPixelsCount;
+
+        Debug.Log(ConvertValueInUnitsToValueInPixels(0.3f));
     }
 
     //-Life access
@@ -154,18 +157,27 @@ public class EatableObject : MonoBehaviour
 
     //-Utils
     private float ConvertValueInUnitsToValueInPixels(float ValueInUnits) {
-        float thePixelSizeInUnits = transform.localScale.x / _logicTexture.width;
-        return ValueInUnits / thePixelSizeInUnits;
+        float LocalValue = WorldToLocalWithoutTranslate(new Vector3(ValueInUnits, 0.0f, 0.0f)).magnitude;
+        return _logicTexture.width * LocalValue;
     }
 
     private Vector2 ConvertWorldPositionToPixelPosition(Vector2 WorldPosition) {
-        Vector3 LocalPosition = transform.InverseTransformPoint(new Vector3(WorldPosition.x, WorldPosition.y, 0.0f));
+        Vector3 LocalPosition = WorldToLocal(WorldPosition);
 
         float AspectRatio = (float)_logicTexture.width / _logicTexture.height;
-        
         float thePixelPositionX = _logicTexture.width * (0.5f + LocalPosition.x);
         float thePixelPositionY = _logicTexture.height * (0.5f + LocalPosition.y * AspectRatio);
 
         return new Vector2(thePixelPositionX, thePixelPositionY);
+    }
+
+    private Vector2 WorldToLocal(Vector2 WorldPosition) {
+        return transform.worldToLocalMatrix.MultiplyPoint3x4(new Vector4(WorldPosition.x, WorldPosition.y, 0.0f));
+    }
+
+    private Vector2 WorldToLocalWithoutTranslate(Vector2 WorldPosition) {
+        Matrix4x4 Matrix = transform.worldToLocalMatrix;
+        Matrix.m03 = 0.0f; Matrix.m13 = 0.0f; Matrix.m23 = 0.0f;
+        return Matrix.MultiplyPoint3x4(new Vector4(WorldPosition.x, WorldPosition.y, 0.0f));
     }
 }
