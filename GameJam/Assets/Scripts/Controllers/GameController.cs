@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour {
     
     public int WinScore = 2000;
     
-    private ClearController _playerClearController = null;
+    private PlayerWormBehaviour _playerWormBehaviour = null;
     public Human Human = null;
 
     private GameState _gameState = GameState.None;
@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour {
     }
 
     private void Start() {
-        _playerClearController = FindObjectOfType<ClearController>();
+        _playerWormBehaviour = FindObjectOfType<PlayerWormBehaviour>();
         Human = FindObjectOfType<Human>();
         
         LoadLevel();
@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour {
     }
 
     public int GetCurrentScore() {
-        return (int) _playerClearController.GetCurrentPoints();
+        return (int)_playerWormBehaviour.getPoints().getValue();
     }
 
     public int GetHumanPerCent() {

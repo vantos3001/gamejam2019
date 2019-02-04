@@ -14,6 +14,8 @@ public class Explosion : MonoBehaviour
     private bool isExplode = false;
     void Start()
     {
+        //TODO: Find better architecture
+        FindObjectOfType<PlayerWormBehaviour>().onBlasted += explode;
         image = GetComponent<Image>();
     }
 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5158204264636783173}
   - component: {fileID: 5158204264636783172}
-  - component: {fileID: 1818240906}
+  - component: {fileID: 1475484229153976409}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -62,7 +62,7 @@ MonoBehaviour:
   BodyElementsCount: 50
   waitingGameStart: 1
   angleWaitingSpeed: 10
---- !u!114 &1818240906
+--- !u!114 &1475484229153976409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,17 +71,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5158204264636783174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ddfb48157846964b9794fbc65b89956, type: 3}
+  m_Script: {fileID: 11500000, guid: a2a72c43f59d3164aaaace7bb742362f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EatingRadius: 0.2
-  BoneBlastRadius: 0.3
-  BoneBlashStunTime: 2
-  BoneBlashPushAwayDistance: 2
-  PointsPerFullMeatCircle: 10
-  PenaltyIfNoEatAtTick: 0.1
-  CurrentPoits: 0
-  BoneDamagePenalty: 200
+  _eatingRadius: 0.2
+  _pointsPerFullMeatCircle: 5
+  _penaltyIfNoEatAtTick: 4
+  _boneBlastSettings:
+    radius: 1
+    stunTime: 1
+    pushAwayDistance: 2
+    evationTime: 0.2
+    boneDamagePenalty: 100
 --- !u!1 &5158204265420075488
 GameObject:
   m_ObjectHideFlags: 0

@@ -59,8 +59,6 @@ public class EatableObject : MonoBehaviour
         
         _startingPixelsCount = theLogicPixelColors.Length;
         _leftPixelsCount = _startingPixelsCount;
-
-        Debug.Log(ConvertValueInUnitsToValueInPixels(0.3f));
     }
 
     //-Life access
